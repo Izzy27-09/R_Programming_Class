@@ -1,0 +1,58 @@
+---
+title: "Lab_01"
+author: "izd3"
+subtitle: "stringr not allowed"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("HomeworkObjects.RData")
+```
+
+Use only commands \& functions that are shown in the indicated chapter or prior chapters.
+
+\newpage
+
+## Problem #01 - Chapter 3 Exercise #06 
+
+```{r}
+# Show your work here
+c(1, 2, 3, 4, 5, 6) * c( 0, 4, 6) - 1
+c(1, 2, 3, 4, 5, 6) * c( 0, 4, 6)- 1
+c(1, 2, 3, 4, 5, 6) * c( 0, 4, 6, 1, 9) - 1
+
+
+```
+
+
+
+\newpage
+
+## Problem #02 - Chapter 4 Exercise #03
+
+```{r}
+# Show your work here
+AssignmentData001<-c(1, 4, 7, 9, 12, 15, 19, 21, 22, 30)
+AssignmentData001*pi
+1/(3^AssignmentData001)
+AssignmentData001^0
+
+
+```
+
+
+\newpage
+
+## Problem #03 - Chapter 5 Exercise #03
+
+```{r}
+# Show your work here
+paste(CharacterData001,collapse = " ")
+paste(CharacterData002,collapse="_")
+
+```
