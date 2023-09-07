@@ -1,0 +1,66 @@
+---
+title: "Lab_02"
+author: "izd3"
+subtitle: "stringr allowed"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("HomeworkObjects.RData")
+```
+
+Use only commands \& functions that are shown in the indicated chapter or prior chapters.
+
+\newpage
+
+## Problem #01 - Chapter 6 Exercise #02 (Use the stringr package) 
+
+```{r}
+# Show your work here
+library('stringr')
+str_flatten(CharacterData001,collapse = ' ')
+str_flatten(CharacterData002,collapse = '_')
+
+```
+
+
+
+\newpage
+
+## Problem #02 - Chapter 7 Exercise #02
+
+```{r}
+# Show your work here
+log_1<-c(FALSE,TRUE)
+log_2<-c(TRUE,TRUE,TRUE,FALSE)
+log_1 | log_2
+
+```
+
+
+\newpage
+
+## Problem #03 - Chapter 8 Exercise #03c
+
+```{r}
+# Show your work here
+c(TRUE, FALSE)==c('1', '0')
+
+```
+
+
+\newpage
+
+## Problem #04 - Chapter 9 Exercise #4a
+
+```{r}
+# Show your work here
+vec_1<-seq(from=1,to=50,by=0.5)
+vec_1
+
+```
