@@ -1,0 +1,62 @@
+---
+title: "Lab_03"
+author: "izd3"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("HomeworkObjects.RData")
+```
+
+Use only commands \& functions that are shown in the indicated chapter or prior chapters.
+
+\newpage
+
+## Problem #01 - Chapter 10 Exercise #01a  
+
+```{r}
+# Show your work here
+CharacterData004[5]
+
+```
+
+\newpage
+
+## Problem #02 - Chapter 11 Exercise #03  
+
+```{r}
+# Show your work here
+fruitMatrix[4,]
+
+```
+
+\newpage
+
+## Problem #03 - Chapter 12 Exercise #02  
+
+```{r}
+# Show your work here
+library('stringr')
+paste(str_sort(letters,decreasing = TRUE),str_sort(LETTERS,decreasing = TRUE),sep="",collapse = " ")
+
+```
+
+
+\newpage
+
+## Problem #04 - Chapter 15 Exercise #01a 
+
+```{r}
+# Show your work here
+Coerce01
+as.logical(Coerce01)
+anyNA(as.logical(Coerce01))
+
+```
+
+

@@ -1,0 +1,201 @@
+---
+title: "HW_02"
+author: "izd3"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("HomeworkObjects.RData")
+```
+
+
+Use only commands \& functions that are shown in the indicated chapter or prior chapters.
+
+\newpage
+
+## Problem #01 - Chapter 06 Exercise #01 ( Use the stringr package)
+
+```{r}
+# Show your work here
+library('stringr')
+str_c("Letter:",CharacterData004)
+
+
+```
+
+
+
+\newpage
+
+## Problem #02 - Chapter 06 Exercise #04 ( Use the stringr package)
+
+```{r}
+# Show your work here
+str_dup(string = "Ho!",times = c(9,8,7,6,5,4,3,2,1))
+
+```
+
+\newpage
+
+## Problem #03 - Chapter 06 Exercise #05 ( Use the stringr package)
+
+```{r}
+# Show your work here
+str_c("I like the letter",CharacterData004,".")
+```
+
+\newpage
+
+## Problem #04 - Chapter 07 Exercise #04
+
+```{r}
+# Show your work here
+c( T, T, F, F, TRUE ) & c(T,T,T,T,T)
+
+!c(F, T, T,F,T,T) & c( F, T, F, T, T, F )
+
+c( T, !FALSE, T, TRUE, T, T ) | c(F, F, !T,F,F,!T )
+
+!c( FALSE, !FALSE, T, TRUE, T, T, FALSE ) | !c( !F, !F, !FALSE, T,!F,!F,!FALSE )
+
+```
+
+
+
+
+\newpage
+
+## Problem #05 - Chapter 07 Exercise #05
+
+```{r}
+# Show your work here
+any(c( T, T, F, F, TRUE ) & c(T,T,T,T,T))
+all(c( T, T, F, F, TRUE ) & c(T,T,T,T,T))
+
+any(!c(F, T, T,F,T,T) & c( F, T, F, T, T, F ))
+all(!c(F, T, T,F,T,T) & c( F, T, F, T, T, F ))
+
+any(c( T, !FALSE, T, TRUE, T, T ) | c(F, F, !T,F,F,!T ))
+all(c( T, !FALSE, T, TRUE, T, T ) | c(F, F, !T,F,F,!T ))
+
+any(!c( FALSE, !FALSE, T, TRUE, T, T, FALSE ) | !c( !F, !F, !FALSE, T,!F,!F,!FALSE ))
+all(!c( FALSE, !FALSE, T, TRUE, T, T, FALSE ) | !c( !F, !F, !FALSE, T,!F,!F,!FALSE ))
+
+```
+
+\newpage
+
+## Problem #06 - Chapter 08 Exercise #01
+
+```{r}
+# Show your work here
+3==3L
+
+c(1, 2, 3, 4, 5, 6)<4
+
+set_one<-c(1:25)
+set_two<-sqrt(set_one)^2
+set_one >= set_two
+
+set_three<-sqrt(set_one^2)
+set_one<=set_three
+
+
+```
+
+\newpage
+
+## Problem #07 - Chapter 09 Exercise #01
+
+```{r}
+# Show your work here
+typeof(c(1, 2L, 3L, 4L, 5L, 6L, 7L, 8L))
+
+typeof(c(T, T, T, T, "F"))
+
+typeof(c(T, 1))
+
+typeof(c('a', T, 10))
+
+```
+
+\newpage
+
+## Problem #08 - Chapter 09 Exercise #03 (Do not display the 1000 element results.)
+
+```{r}
+# Show your work here
+
+#a 
+first<-seq(from=1,to=1000, by=1)
+#b. 
+second<-sqrt(first)
+#c. 
+third<-seq(from=2,to=1000,by=2)
+third
+#d. 
+fourth<-seq(from=1,to=999,by=2)
+fourth
+
+#e. 
+fifth<-seq(from=10,to=-50,by=-1)
+fifth
+
+```
+
+\newpage
+
+## Problem #09 - Chapter 09 Exercise #05
+
+```{r}
+# Show your work here
+#a)
+seq(from=-0.123, to=68, length.out=9)
+
+#b)
+seq(from=90,by=-12,length.out=19)
+
+#c)
+seq(from=9,by=3,to=21.2)
+
+#d)
+vec_1<-seq(from=10,to=2001,by=10)
+sqrt(vec_1)
+
+#e)
+vec_2<-seq(from=82,to=2001,by=82)
+sqrt(vec_2)+25
+
+```
+
+
+\newpage
+
+## Problem #10 - Chapter 09 Exercise #06abc
+
+```{r}
+# Show your work here
+#a)
+c(VectorsOne,VectorsInts)
+
+#b)
+rep(c(VectorsA,VectorsGirl),length.out=100)
+
+
+#c)
+c(VectorsA,VectorsOne,VectorsA,VectorsGirl,VectorsInts,VectorsA)
+
+```
+
+
+\newpage
+
+## Problem #11 - Chapter 09 Exercise #07a
+
+```{r}
+# Show your work here
+seq(from=156, to=10000, by=pi)
+```

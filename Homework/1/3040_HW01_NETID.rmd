@@ -1,0 +1,154 @@
+---
+title: "HW_01"
+author: "izd3"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("HomeworkObjects.RData")
+```
+
+
+Use only commands \& functions that are shown in the indicated chapter or prior chapters.
+
+\newpage
+
+## Problem #01 - Chapter 04 Exercise #04
+
+```{r}
+# Show your work here
+m_1=c(10,34,4,884,4)
+m_2=c(11,21,39,73,34)
+r=c(2,.5,19,98,23)
+g<-12.6
+
+g*((m_1*m_2)/r^2)
+```
+
+
+
+\newpage
+
+## Problem #02 - Chapter 04 Exercise #05
+
+```{r}
+# Show your work here
+nums<-c(0:19)
+
+fork<-(1+sqrt(5))/2
+
+Fib<-(fork^nums-(-fork)^-nums)/sqrt(5)
+Fib
+
+```
+
+\newpage
+
+## Problem #03 - Chapter 04 Exercise #06
+
+```{r}
+# Show your work here
+hypo<-c(5,13,41,29,65)
+other<-c(4,12,40,21,63)
+
+adjacent<-sqrt(hypo^2-other^2)
+adjacent
+
+```
+
+\newpage
+
+## Problem #04 - Chapter 04 Exercise #07
+
+```{r}
+# Show your work here
+ones<-c(1,1,1)
+evens<-c(2,4,6, 8)
+negatives<--c(10,20,30,120)
+ninety_nine<-99
+
+#a
+c(ones,ones,ninety_nine)
+
+#b
+c(ones,evens,-negatives)
+
+#c
+c(ones,ninety_nine,-negatives,-negatives,ones,ones)
+
+#d
+c(ones-1,ones+4,ninety_nine-84,ones-1,ninety_nine-99)
+
+```
+
+
+
+
+\newpage
+
+## Problem #05 - Chapter 05 Exercise #04
+
+```{r}
+# Show your work here
+CharacterData003
+strsplit(CharacterData003,split ="inches")
+```
+
+\newpage
+
+## Problem #06 - Chapter 05 Exercise #05
+
+```{r}
+# Show your work here
+paste('I like the letter',CharacterData004)
+
+```
+
+\newpage
+
+## Problem #07 - Chapter 05 Exercise #06
+
+```{r}
+# Show your work here
+first_take<-paste(CharacterData005,CharacterData006,sep = ' ',collapse = ' ')
+first_take_num<-nchar(first_take)
+substring(text = first_take,first = 0,last = first_take_num-3)
+
+```
+
+\newpage
+
+## Problem #08 - Chapter 05 Exercise #07ad
+
+```{r}
+# Show your work here
+
+
+chartr(old = 'abcdecfghijklmnopqrstuvwxyz', new =	c('defghfijklmnopqrstuvwxyzabc') ,CharacterData007)
+
+
+chartr(old = 'abcdecfghijklmnopqrstuvwxyz', new =c('uvwxywzabcdefghijklmnopqrst'),CharacterData010)
+
+
+```
+
+\newpage
+
+## Problem #09 - Chapter 05 Exercise #08
+
+```{r}
+# Show your work here
+string_length <- nchar(CharacterData011)
+substring(text = CharacterData011, first = 2, last = string_length - 4)
+
+string_length <- nchar(CharacterData012)
+substring(text = CharacterData012, first = 1, last = string_length - 3)
+
+
+string_length <- nchar(CharacterData013)
+substring(text = CharacterData013, first = 11, last = string_length)
+
+```
