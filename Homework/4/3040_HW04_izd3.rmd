@@ -1,0 +1,166 @@
+---
+title: "HW_04"
+author: "izd3"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("HomeworkObjects.RData")
+```
+
+
+Use only commands \& functions that are shown in the indicated chapter or prior chapters.
+
+\newpage
+
+## Problem #01 - Chapter 16 Exercise #04  
+
+```{r}
+# Show your work here
+string_a<-'a'
+num_vec<-c(0,1)
+xer<-rep(x=1,times=6)
+mat_1 <- matrix(data = xer, nrow = 2, ncol = 3, byrow = FALSE)
+na_vec<-rep(x=NA,times=10)
+List004<-list(num_vec,xer,mat_1,as.character(na_vec))
+str(List004)
+
+```
+
+\newpage
+
+## Problem #02 - Chapter 17 Exercise #03 (Display the structure of your results and not the actual result.)  
+
+```{r}
+# Show your work here
+str(ModifyLists001[1])
+str(ModifyLists002[length(ModifyLists002)-1:length(ModifyLists002)])
+len<-length(ModifyLists003)
+vects<-seq(from=2,to=10,by=2)
+str(ModifyLists003[vects])
+
+```
+
+\newpage
+
+## Problem #03 - Chapter 17 Exercise #06 (Display the structure of your results and not the actual result.)  
+
+```{r}
+# Show your work here
+copy<-ModifyLists003
+copy<-(copy[names(copy)!=''])
+str(copy)
+
+
+```
+
+\newpage
+
+## Problem #04 - Chapter 18 Exercise #02 
+
+```{r}
+# Show your work here
+letter3<-rep(x=letters,each=3)
+nums<-seq(from=78,to=1)
+cl<-colors()
+ini<-length(cl)-77
+cl<-cl[ini:length(cl)]
+
+dat<-data.frame(variable.1=letter3,variable.2=nums,variable.3=cl)
+dat
+
+```
+
+\newpage
+
+## Problem #05 - Chapter 18 Exercise #06 (Display the structure of your results and not the actual result.)
+
+```{r}
+# Show your work here
+str(subset(Loblolly,Loblolly$height>60))
+str(subset(Formaldehyde,Formaldehyde$carb>0.5))
+str(subset(ChickWeight,ChickWeight$weight==0))
+```
+
+\newpage
+
+## Problem #06 - Chapter 19 Exercise #02 (Display the structure of your results and not the actual result.)
+
+```{r}
+# Show your work here
+library('tibble')
+letter3<-rep(x=letters,each=3)
+nums<-seq(from=78,to=1)
+cl<-colors()
+ini<-length(cl)-77
+cl<-cl[ini:length(cl)]
+
+example.tibble2<-tibble(variable.1=letter3,variable.2=nums,variable.3=cl)
+str(example.tibble2)
+
+```
+
+
+\newpage
+
+## Problem #07 - Chapter 19 Exercise #05 
+
+```{r}
+# Show your work here
+str(subset(Loblolly.tib,Loblolly$height>60))
+str(subset(Formaldehyde.tib,Formaldehyde.tib$carb>0.5))
+str(subset(ChickWeight.tib,ChickWeight.tib$weight==0))
+
+
+```
+
+\newpage
+
+## Problem #08 - Chapter 20 Exercise #02 ( You will need to look up the formula) 
+
+```{r}
+# Show your work here
+FtoC <- function(Fahrenheit) {
+  Celsius <- (Fahrenheit - 32) * 5/9
+  return(Celsius)
+}
+
+```
+
+\newpage
+
+## Problem #09 - Chapter 20 Exercise #08 ( You will need to look up the formula) 
+
+```{r}
+# Show your work here
+ten0<-rep(x=0,times=10)
+
+totalOfTen <- function(x = ten0) {
+  total <- sum(x)
+  return(total)
+}
+
+```
+
+\newpage
+
+## Problem #10 - Chapter 21 Exercise #07 ( You will need to look up the formulas) 
+
+```{r}
+# Show your work here
+LifeCycleSavingsUpdate$age.ratio <- LifeCycleSavingsUpdate$pop15 / 
+  LifeCycleSavingsUpdate$pop75
+
+LifeCycleSavingsUpdate$broken.up <- ifelse(LifeCycleSavingsUpdate$age.ratio < 10
+                                           
+&LifeCycleSavingsUpdate$ddpi < 3,"DOWN"
+
+,ifelse(LifeCycleSavingsUpdate$age.ratio > 20 & LifeCycleSavingsUpdate$ddpi > 4,
+        "UP","OVER"))
+
+head(LifeCycleSavingsUpdate)
+
+```

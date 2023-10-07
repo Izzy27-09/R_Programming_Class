@@ -1,0 +1,129 @@
+---
+title: "HW_05"
+author: "izd3"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("HomeworkObjects.RData")
+```
+
+
+Use only commands \& functions that are shown in the indicated chapter or prior chapters.
+
+\newpage
+
+## Problem #01 - Chapter 22 Exercise #04  
+
+```{r}
+# Show your work here
+my_vector<-c(1:3)
+for (i in 4:40) {
+  my_vector[i] <- sum(my_vector[(i - 3):(i - 1)])
+}
+my_vector
+
+```
+
+\newpage
+
+## Problem #02 - Chapter 22 Exercise #05  
+
+```{r}
+# Show your work here
+vector_22<- 1
+
+for (i in 2:40) {
+  vector_22[i] <- -2 * vector_22[i - 1]
+}
+vector_22
+
+```
+
+
+\newpage
+
+## Problem #03 - Chapter 23 Exercise #07  
+
+```{r}
+# Show your work here
+setdiff(Set001, Set002)
+
+```
+
+\newpage
+
+## Problem #04 - Chapter 24 Exercise #9 ( The result should be a single vector with 21 values. The function you want to use is vectorized.)  
+
+```{r}
+# Show your work here
+chooser<-Vectorize(choose)
+ans<-chooser(20,0:20)
+ans
+```
+
+
+\newpage
+
+## Problem #05 - Chapter 24 Exercise #13   
+
+```{r}
+# Show your work here
+min_values<-0
+for (i in 1:1000) {
+  values <- c(Math001[i], Math002[i], Math003[i], Math004[i])
+  min_val <- min(values)
+  min_values[i] <- min_val
+}
+min_values[1:20]
+
+```
+
+
+\newpage
+
+## Problem #06 - Chapter 24 Exercise #14  
+
+```{r}
+# Show your work here
+non_zero <- 0
+
+# Loop through i from 1 to 1000
+for (i in 1:1000) {
+  values <- c(Math001[i], Math002[i], Math003[i], Math004[i])
+  values <- values[!is.na(values)]
+  min_val <- min(values)
+  if (min_val >= 0) {
+    non_zero <- non_zero + 1
+  }
+}
+non_zero
+
+```
+
+\newpage
+
+## Problem #07 - Chapter 24 Exercise #15   
+
+```{r}
+# Show your work here
+MathOrdered <- Math005[order(Math005$comp2), ]
+
+head(MathOrdered, 10)
+
+```
+
+
+\newpage
+
+## Problem #08 - Chapter 25 Exercise #07  
+
+```{r}
+# Show your work here
+p_values<-LETTERS[1:10]
+sample(x=p_values,size = 3,replace = T)
+
+```

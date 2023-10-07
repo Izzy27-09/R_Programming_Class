@@ -1,0 +1,82 @@
+---
+title: "Lab_05"
+author: "NETID"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("HomeworkObjects.RData")
+```
+
+Use only commands \& functions that are shown in the indicated chapter or prior chapters.
+
+\newpage
+
+## Problem #01 - Chapter 22 Exercise #03 
+
+```{r}
+# Show your work here
+
+for(index in 1:40){
+  if(index==1){
+    my_list<--4
+    next
+  }
+  if(index==2){
+    my_list<-c(my_list,3)
+    next
+  }
+  nextel<-my_list[index-1]+my_list[index-2]
+  my_list<-c(my_list,nextel)
+}
+my_list
+
+```
+
+
+\newpage
+
+## Problem #02 - Chapter 23 Exercise #10 ( Your result should be a logical vector of length two. The first value for "A". The second for "B".) 
+
+```{r}
+# Show your work here
+check<-c('A' %in% Set001,'B' %in% Set001)
+check
+
+
+```
+
+\newpage
+
+## Problem #03 - Chapter 24 Exercise #02 
+
+```{r}
+# Show your work here
+sum(Math002,na.rm = TRUE)
+
+```
+
+\newpage
+
+## Problem #04 - Chapter 24 Exercise #04 
+
+```{r}
+# Show your work here
+end<-length(Math002)
+for(index in 1:end){
+  number2<-sum(Math002[1:index],na.rm = TRUE)
+  if (index==1){
+    listn<-number2
+    next
+  }
+  listn<-c(listn,number2)
+}
+listn
+
+```
+

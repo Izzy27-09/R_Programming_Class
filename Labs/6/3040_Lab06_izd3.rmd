@@ -1,0 +1,68 @@
+---
+title: "Lab_06"
+author: "izd3"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("HomeworkObjects.RData")
+
+```
+
+Use only commands \& functions that are shown in the indicated chapter or prior chapters.
+
+\newpage
+
+## Problem #01 - Chapter 25 Exercise #7  
+
+```{r}
+# Show your work here
+first_10<-LETTERS[1:10]
+sample(first_10, 3, replace = TRUE)
+
+```
+
+
+\newpage
+
+## Problem #02 - Chapter 27 Exercise #3 
+
+```{r out.height = 300,  fig.width = 12, fig.height = 8, message=FALSE, warning=FALSE}
+# Show your work here
+library('patchwork')
+(patchwork01|patchwork02)/(patchwork01|patchwork03|patchwork04)
+
+
+```
+
+\newpage
+
+## Problem #03 - Chapter 28 Exercise #2A
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+library('ggplot2')
+plot_1<-ggplot(x=ggplot001.tib,mapping = aes(x=ggplot001.tib$var.1,y=ggplot001.tib$var.2,color=ggplot001.tib$group.var.1))+
+  geom_point(size=4)
+plot_1
+
+```
+
+\newpage
+
+## Problem #0v4 - Chapter 28 Exercise #4A ( look at the legends to help determine the datasets used.)
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+plot_1<-ggplot(x=ggplot001.tib,mapping = aes(x=ggplot001.tib$var.1,y=ggplot001.tib$var.2,color=ggplot001.tib$group.var.1))+
+  geom_point(size=0)
+
+plot_1+geom_point(data = ggplot001.tib,size=4,shape=6)
+
+```
+

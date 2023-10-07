@@ -1,0 +1,145 @@
+---
+title: "HW_03"
+author: "izd3"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("HomeworkObjects.RData")
+```
+
+
+Use only commands \& functions that are shown in the indicated chapter or prior chapters.
+
+\newpage
+
+## Problem #01 - Chapter 10 Exercise #02 
+
+```{r}
+# Show your work here
+
+CharacterData001[10:15]
+CharacterData006[(length(CharacterData006)-5):64]
+Filtering001[1:20]
+
+```
+
+\newpage
+
+## Problem #02 - Chapter 10 Exercise #04 
+
+```{r}
+# Show your work here
+fill1<-which(Filtering001>=9.9)
+Filtering001[fill1]
+
+Filtering001[Filtering001>=0 & Filtering001<=0.025]
+
+CharacterData001[CharacterData001=='if' | CharacterData001=='this']
+
+
+
+```
+
+\newpage
+
+## Problem #03 - Chapter 11 Exercise #02 
+
+```{r}
+# Show your work here
+
+fruitMatrix[,5]
+```
+
+\newpage
+
+## Problem #04 - Chapter 11 Exercise #05 
+
+```{r}
+# Show your work here
+str(fruitMatrix)
+matrix(fruitMatrix[2:5,2:4],nrow = 4,ncol = 3,byrow = FALSE)
+
+```
+
+\newpage
+
+## Problem #05 - Chapter 11 Exercise #08 
+
+```{r}
+# Show your work here
+matrix(numberMatrix[numberMatrix<=25],nrow = 4,ncol = 4,byrow = FALSE)
+```
+
+\newpage
+
+## Problem #06 - Chapter 12 Exercise #04 
+
+```{r}
+# Show your work here
+library('stringr')
+any(tolower(substr(sentences, length(sentences), length(sentences))) == 'z')
+
+```
+
+\newpage
+
+## Problem #07 - Chapter 12 Exercise #05 
+
+```{r}
+# Show your work here
+all(length(words)<=11)
+```
+
+\newpage
+
+## Problem #08 - Chapter 13 Exercise #01 
+
+```{r}
+# Show your work here
+length(PossiblyInfinite[PossiblyInfinite==Inf | PossiblyInfinite==-Inf])
+
+```
+
+\newpage
+
+## Problem #09 - Chapter 14 Exercise #02ab 
+
+```{r}
+# Show your work here
+anyNA(firstNames)
+anyNA(lastNames)
+
+```
+
+\newpage
+
+## Problem #10 - Chapter 14 Exercise #03 
+
+```{r}
+# Show your work here
+which(is.na(MissingValues01))
+which(is.na(MissingValues02))
+which(is.na(MissingValues03))
+which(is.na(firstNames))
+which(is.na(lastNames))
+which(is.na(idNumbers))
+```
+
+\newpage
+
+## Problem #11 - Chapter 14 Exercise #05a 
+
+```{r}
+# Show your work here
+casll<-which(is.na(lastNames))
+firstNames[as.integer(casll)]
+#Since there is no NA in last names nothing
+#is shown for firstrNames
+```
+
+
+
