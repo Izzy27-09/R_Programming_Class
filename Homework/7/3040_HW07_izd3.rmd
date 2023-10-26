@@ -1,0 +1,134 @@
+---
+title: "HW_07"
+author: "izd3"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("HomeworkObjects.RData")
+```
+
+
+Use only commands \& functions that are shown in the indicated chapter or prior chapters.
+
+\newpage
+
+## Problem #01 - Chapter 29 Exercise #01D  
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+library(scales)
+library(ggplot2)
+coordGraph002+coord_fixed(ratio=8/7)
+```
+
+\newpage
+
+## Problem #02 - Chapter 29 Exercise #03D  
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+
+coordGraph002+coord_trans(y=sqrt_trans(),x=reverse_trans())
+
+```
+
+
+\newpage
+
+## Problem #03 - Chapter 30 Exercise #01D  
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+facetPlot004+facet_wrap(~ggplot005.dat$var.3)
+```
+
+\newpage
+
+## Problem #04 - Chapter 30 Exercise #03D   
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+facetPlot006+facet_grid(ggplot006.dat$var.3~ggplot006.dat$var.4)
+
+```
+
+
+\newpage
+
+## Problem #05 - Chapter 30 Exercise #04A  
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+ggplot005.dat|>
+  ggplot(aes(x=var.1,y=var.2,color=var.3))+
+  geom_point(shape=3,size=4)+
+  facet_wrap(~ggplot005.dat$var.4)
+```
+
+
+\newpage
+
+## Problem #06 - Chapter 31 Exercise #03A  
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+ggplot009.tib|>
+  ggplot(aes(x=x.values,y=y.values))+geom_line()
+
+```
+
+\newpage
+
+## Problem #07 - Chapter 31 Exercise #04D   
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+ggplot010.tib|>
+  ggplot(aes(x=u.values,y=t.values,color=z.values))+geom_line()
+
+```
+
+
+\newpage
+
+## Problem #08 - Chapter 31 Exercise #06  
+
+```{r  out.height = 500, fig.height = 6, fig.width = 6}
+# Show your work here
+x<-c(-1,0,1,2,0,-2)
+y<-c(0,0,0,1,1,1)
+x_head<-c(0,0.29,0,-.29)
+y_head<-c(4,4.5,5,4.5)
+head_data<-data.frame(x.boat=x_head,y.boat=y_head)
+boat_data<-data.frame(x.boat=x,y.boat=y)
+
+
+
+x_values <- seq(-5, 2, length.out = 1000)  # 100
+
+y_values<-c(sinpi(x_values)/2,sinpi(x_values)/2.7,sinpi(x_values)/6,sinpi(x_values)/3,
+            sinpi(x_values)/7)
+
+x_values<-rep.int(x_values,times = 5)
+z_values<-rep(c('A','B','C','D','E'),each=1000)
+
+ wavy<-data.frame(x.boat=x_values,y.boat=y_values,z.wave=z_values)
+
+
+
+
+ggplot()+geom_polygon(data=boat_data,mapping = aes(x=x.boat,y=y.boat),
+                      color='red',fill='red')+
+    geom_line(mapping = aes(x=0,y=2:4))+
+    geom_line(mapping = aes(x=c(0,1),y=c(2,1)))+
+    geom_line(mapping = aes(x=c(0,-1),y=c(2,1)))+
+    geom_line(mapping = aes(x=c(0,1.5),y=c(3.98,3)))+
+    geom_line(mapping = aes(x=c(0,-1.5),y=c(3.98,3)))+
+    geom_point(aes(x=0,y=4.28),size=20)+
+    geom_line(data=wavy,mapping = aes(x=x.boat,y=y.boat,color=z.wave))+
+    geom_hline(yintercept = 5,color='white')
+```

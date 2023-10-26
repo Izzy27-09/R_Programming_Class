@@ -1,0 +1,63 @@
+---
+title: "Lab_08"
+author: "izd3"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("HomeworkObjects.RData")
+```
+
+Use only commands \& functions that are shown in the indicated chapter or prior chapters.
+
+\newpage
+
+## Problem #01 - Chapter 32 Excercise 1A
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+library(ggplot2)
+oneVariable001.dat|>
+  ggplot(aes(x=values))+geom_histogram()
+
+```
+
+\newpage
+
+## Problem #02 - Chapter 32 Exercise #2D 
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+oneVariable001.dat|>
+  ggplot(aes(x=values,color=animals))+geom_freqpoly()
+
+```
+
+\newpage
+
+## Problem #03 - Chapter 32 Exercise #3C 
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+oneVariable001.dat|>
+  ggplot(aes(x=flops,y=values,fill=flops))+geom_violin()
+
+```
+
+
+\newpage
+
+## Problem #04 - Chapter 33 Exercise #2C 
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+oneVariable001.dat|>
+  ggplot(aes(x=values,y=drive))+
+  geom_point(aes(color=flops))+
+  geom_smooth(aes(linetype=animals),se=F,color='black')
+
+```

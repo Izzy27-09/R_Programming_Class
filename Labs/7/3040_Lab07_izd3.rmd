@@ -1,0 +1,63 @@
+---
+title: "Lab_07"
+author: "izd3"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("HomeworkObjects.RData")
+```
+
+Use only commands & functions that are shown in the indicated chapter or prior chapters.
+
+\newpage
+
+## Problem #01 - Chapter 28 Exercise #5C ( look at the legends to help determine the datasets used.)
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+library(ggplot2)
+ggplot001.tib|>
+  ggplot(aes(x=var.1,y=var.2,size=var.2))+geom_point(fill=NA)
+
+
+```
+
+\newpage
+
+## Problem #02 - Chapter 29 Exercise #1A
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+coordGraph001+coord_fixed(ratio = 2)
+
+
+```
+
+\newpage
+
+## Problem #03 - Chapter 30 Exercise #1B
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+ggplot005.dat|>
+  ggplot(aes(x=var.2))+geom_histogram()+facet_wrap(~var.4)
+
+```
+
+\newpage
+
+## Problem #04 - Chapter 31 Exercise #1A
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+ggplot008.tib|>
+  ggplot(aes(x=x.values,y=y.values,color=t.values))+geom_line()+
+  geom_vline(xintercept = 0,color='red')+
+  geom_hline(yintercept = 0.75,color='lightblue')
+
+
+```
