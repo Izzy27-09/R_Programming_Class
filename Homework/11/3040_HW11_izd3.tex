@@ -1,0 +1,652 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={HW\_11},
+  pdfauthor={izd3},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{HW\_11}
+\author{izd3}
+\date{}
+
+\begin{document}
+\maketitle
+
+\newpage
+
+\hypertarget{problem-01---chapter-40-exercise-03b-alternating-with-all-the-given-strings-will-get-minimal-credit}{%
+\subsection{Problem \#01 - Chapter 40 Exercise \#03B (Alternating with
+all the given strings will get minimal
+credit)}\label{problem-01---chapter-40-exercise-03b-alternating-with-all-the-given-strings-will-get-minimal-credit}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\FunctionTok{library}\NormalTok{(stringr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'stringr' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{starting\_strings }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{, }\StringTok{"Ad"}\NormalTok{, }\StringTok{"Add"}\NormalTok{, }\StringTok{"Aing"}\NormalTok{, }\StringTok{"Ading"}\NormalTok{, }\StringTok{"Adding"}\NormalTok{)}
+\NormalTok{filtered\_sentences }\OtherTok{\textless{}{-}} \FunctionTok{str\_subset}\NormalTok{(sentences, }\FunctionTok{str\_c}\NormalTok{(}\StringTok{"\^{}"}\NormalTok{, }\FunctionTok{paste}\NormalTok{(starting\_strings, }\AttributeTok{collapse =} \StringTok{"|"}\NormalTok{)))}
+\FunctionTok{length}\NormalTok{(filtered\_sentences)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 93
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{filtered\_sentences}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "A large size in stockings is hard to sell."      
+##  [2] "A rod is used to catch pink salmon."             
+##  [3] "A pot of tea helps to pass the evening."         
+##  [4] "A king ruled the state in the early days."       
+##  [5] "Adding fast leads to wrong sums."                
+##  [6] "A saw is a tool used for making boards."         
+##  [7] "A cup of sugar makes sweet fudge."               
+##  [8] "A small creek cut across the field."             
+##  [9] "A yacht slid around the point into the bay."     
+## [10] "A tame squirrel makes a nice pet."               
+## [11] "Always close the barn door tight."               
+## [12] "A wisp of cloud hung in the blue air."           
+## [13] "A pound of sugar costs more than eggs."          
+## [14] "A Tusk is used to make costly gifts."            
+## [15] "Add the sum to the product of these three."      
+## [16] "Act on these orders with great speed."           
+## [17] "A lame back kept his score low."                 
+## [18] "A cramp is no small danger on a swim."           
+## [19] "A salt pickle tastes fine with ham."             
+## [20] "A speedy man can beat this track mark."          
+## [21] "At that high level the air is pure."             
+## [22] "A filing case is now hard to buy."               
+## [23] "An abrupt start does not win the prize."         
+## [24] "A rag will soak up spilled water."               
+## [25] "A shower of dirt fell from the hot pipes."       
+## [26] "Add the store's account to the last cent."       
+## [27] "Acid burns holes in wool cloth."                 
+## [28] "A young child should not suffer fright."         
+## [29] "Add the column and put the sum here."            
+## [30] "A blue crane is a tall wading bird."             
+## [31] "A fresh start will work such wonders."           
+## [32] "After the dance, they went straight home."       
+## [33] "A pencil with black lead writes best."           
+## [34] "A waxed floor makes us lose balance."            
+## [35] "Add salt before you fry the egg."                
+## [36] "A dash of pepper spoils beef stew."              
+## [37] "A zestful food is the hot-cross bun."            
+## [38] "A joy to every child is the swan boat."          
+## [39] "All sat frozen and watched the screen."          
+## [40] "A cloud of dust stung his tender eyes."          
+## [41] "A ridge on a smooth surface is a bump or flaw."  
+## [42] "A gem in the rough needs work to polish."        
+## [43] "A castle built from sand fails to endure."       
+## [44] "A child's wit saved the day for us."             
+## [45] "A ripe plum is fit for a king's palate."         
+## [46] "A sash of gold silk will trim her dress."        
+## [47] "A siege will crack the strong defense."          
+## [48] "A lathe cuts and trims any wood."                
+## [49] "A cone costs five cents on Mondays."             
+## [50] "A pod is what peas always grow in."              
+## [51] "A list of names is carved around the base."      
+## [52] "A chink in the wall allowed a draft to blow."    
+## [53] "A cold dip restores health and zest."            
+## [54] "A gray mare walked before the colt."             
+## [55] "A clean neck means a neat collar."               
+## [56] "A fur muff is stylish once more."                
+## [57] "A fence cuts through the corner lot."            
+## [58] "A quart of milk is water for the most part."     
+## [59] "A man in a blue sweater sat at the desk."        
+## [60] "A sip of tea revives his tired friend."          
+## [61] "A force equal to that would move the earth."     
+## [62] "A bowl of rice is free with chicken stew."       
+## [63] "A big wet stain was on the round carpet."        
+## [64] "A rich farm is rare in this sandy waste."        
+## [65] "A strong bid may scare your partner stiff."      
+## [66] "A thing of small note can cause despair."        
+## [67] "A thick coat of black paint covered all."        
+## [68] "At night the alarm roused him from a deep sleep."
+## [69] "A brown leather bag hung from its strap."        
+## [70] "A toad and a frog are hard to tell apart."       
+## [71] "A white silk jacket goes with any shoes."        
+## [72] "A break in the dam almost caused a flood."       
+## [73] "A round hole was drilled through the thin board."
+## [74] "A vent near the edge brought in fresh air."      
+## [75] "A sullen smile gets few friends."                
+## [76] "A stiff cord will do to fasten your shoe."       
+## [77] "A plea for funds seems to come again."           
+## [78] "A thin stripe runs down the middle."             
+## [79] "A six comes up more often than a ten."           
+## [80] "A steep trail is painful for our feet."          
+## [81] "A whiff of it will cure the most stubborn cold." 
+## [82] "A cruise in warm waters in a sleek yacht is fun."
+## [83] "A streak of color ran down the left edge."       
+## [84] "A gold vase is both rare and costly."            
+## [85] "A smatter of French is worse than none."         
+## [86] "A round mat will cover the dull spot."           
+## [87] "A good book informs of what we ought to know."   
+## [88] "A flat pack takes less luggage space."           
+## [89] "A stuffed chair slipped from the moving van."    
+## [90] "A thin book fits in the side pocket."            
+## [91] "A gold ring will please most any girl."          
+## [92] "A pink shell was found on the sandy beach."      
+## [93] "A severe storm tore down the barn."
+\end{verbatim}
+
+\newpage
+
+\hypertarget{problem-02---chapter-40-exercise-10}{%
+\subsection{Problem \#02 - Chapter 40 Exercise
+\#10}\label{problem-02---chapter-40-exercise-10}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+
+\NormalTok{filtered\_sentences }\OtherTok{\textless{}{-}} \FunctionTok{str\_subset}\NormalTok{(sentences, }\StringTok{"\^{}The.*ed.*the .*ed$"}\NormalTok{)}
+\NormalTok{filtered\_sentences}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## character(0)
+\end{verbatim}
+
+\newpage
+
+\hypertarget{problem-03---chapter-40-exercise-11}{%
+\subsection{Problem \#03 - Chapter 40 Exercise
+\#11}\label{problem-03---chapter-40-exercise-11}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\NormalTok{pattern }\OtherTok{\textless{}{-}} \StringTok{"(er|se).*([a{-}zA{-}Z])}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{2.*}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{1"}
+
+\CommentTok{\# Create a single vector containing all strings that satisfy the specified conditions}
+\NormalTok{filtered\_sentences }\OtherTok{\textless{}{-}} \FunctionTok{str\_subset}\NormalTok{(sentences, pattern)}
+
+\CommentTok{\# Display the resulting vector}
+\NormalTok{ filtered\_sentences}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Her purse was full of useless trash."            
+## [2] "This horse will nose his way to the finish."     
+## [3] "The couch cover and hall drapes were blue."      
+## [4] "The case was puzzling to the old and wise."      
+## [5] "Sit on the perch and tell the others what to do."
+\end{verbatim}
+
+\newpage
+
+\hypertarget{problem-04---chapter-41-exercise-5-display-all-this-information-in-a-single-tibbledataframe}{%
+\subsection{Problem \#04 - Chapter 41 Exercise \#5 (display all this
+information in a single
+tibble/dataframe)}\label{problem-04---chapter-41-exercise-5-display-all-this-information-in-a-single-tibbledataframe}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\FunctionTok{library}\NormalTok{(openintro)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'openintro' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: airports
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'airports' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: cherryblossom
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'cherryblossom' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: usdata
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'usdata' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'dplyr' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{data}\NormalTok{(}\StringTok{"nycflights"}\NormalTok{)}
+
+\NormalTok{nycflights}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{group\_by}\NormalTok{(carrier,origin)}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{avg\_dep\_delay =} \FunctionTok{mean}\NormalTok{(dep\_delay, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{avg\_arr\_delay =} \FunctionTok{mean}\NormalTok{(arr\_delay, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{min\_dep\_delay =} \FunctionTok{min}\NormalTok{(dep\_delay, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{max\_dep\_delay =} \FunctionTok{max}\NormalTok{(dep\_delay, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{min\_arr\_delay =} \FunctionTok{min}\NormalTok{(arr\_delay, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{max\_arr\_delay =} \FunctionTok{max}\NormalTok{(arr\_delay, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'carrier'. You can override using the
+## `.groups` argument.
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 35 x 8
+## # Groups:   carrier [16]
+##    carrier origin avg_dep_delay avg_arr_delay min_dep_delay max_dep_delay
+##    <chr>   <chr>          <dbl>         <dbl>         <dbl>         <dbl>
+##  1 9E      EWR             4.77         3.11            -15           196
+##  2 9E      JFK            19.9          9.51            -17           376
+##  3 9E      LGA            10.2          2.94            -19           241
+##  4 AA      EWR             8.77        -2.55            -14           368
+##  5 AA      JFK            10.9          2.98            -11           347
+##  6 AA      LGA             7.58         0.838           -18           803
+##  7 AS      EWR             5.18       -11.3             -20           167
+##  8 B6      EWR            13.3          9.35            -20           220
+##  9 B6      JFK            13.1          9.40            -17           392
+## 10 B6      LGA            13.6         12.4             -21           290
+## # i 25 more rows
+## # i 2 more variables: min_arr_delay <dbl>, max_arr_delay <dbl>
+\end{verbatim}
+
+\newpage
+
+\hypertarget{problem-05---chapter-41-exercise-06}{%
+\subsection{Problem \#05 - Chapter 41 Exercise
+\#06}\label{problem-05---chapter-41-exercise-06}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\FunctionTok{library}\NormalTok{(babynames)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'babynames' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'babynames'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:openintro':
+## 
+##     births
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'ggplot2' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{babynames}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{group\_by}\NormalTok{(}
+\NormalTok{    sex,year}
+\NormalTok{  )}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{max\_num=}\FunctionTok{max}\NormalTok{(n))}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y=}\NormalTok{max\_num,}\AttributeTok{x=}\NormalTok{year,}\AttributeTok{color=}\NormalTok{sex))}\SpecialCharTok{+}\FunctionTok{geom\_smooth}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{linetype=}\NormalTok{sex))}\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{x=}\StringTok{"year"}\NormalTok{,}
+    \AttributeTok{y=}\StringTok{"maximum"}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'sex'. You can override using the `.groups`
+## argument.
+\end{verbatim}
+
+\begin{verbatim}
+## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+\end{verbatim}
+
+\includegraphics[height=300]{3040_HW11_izd3_files/figure-latex/unnamed-chunk-5-1}
+
+\newpage
+
+\hypertarget{problem-06---chapter-42-exercise-2abc}{%
+\subsection{Problem \#06 - Chapter 42 Exercise
+\#2ABC}\label{problem-06---chapter-42-exercise-2abc}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\NormalTok{ChickWeight.tib}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{filter}\NormalTok{(weight}\SpecialCharTok{\textgreater{}}\DecValTok{350} \SpecialCharTok{|}\NormalTok{ Time}\SpecialCharTok{\textless{}}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 52 x 4
+##    weight  Time Chick Diet 
+##     <dbl> <dbl> <ord> <fct>
+##  1     42     0 1     1    
+##  2     40     0 2     1    
+##  3     43     0 3     1    
+##  4     42     0 4     1    
+##  5     41     0 5     1    
+##  6     41     0 6     1    
+##  7     41     0 7     1    
+##  8     42     0 8     1    
+##  9     42     0 9     1    
+## 10     41     0 10    1    
+## # i 42 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Formaldehyde.tib}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{filter}\NormalTok{(carb}\SpecialCharTok{\textless{}=}\FloatTok{0.3} \SpecialCharTok{\&}\NormalTok{ optden}\SpecialCharTok{\textgreater{}}\FloatTok{0.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 2
+##    carb optden
+##   <dbl>  <dbl>
+## 1   0.3  0.269
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Loblolly.tib}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{filter}\NormalTok{(age}\SpecialCharTok{\textgreater{}=}\DecValTok{4}\SpecialCharTok{\&}\NormalTok{age}\SpecialCharTok{\textless{}=}\DecValTok{10}\SpecialCharTok{\&}\NormalTok{Seed}\SpecialCharTok{==}\DecValTok{329}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 3
+##   height   age Seed 
+##    <dbl> <dbl> <ord>
+## 1   9.34     5 329  
+## 2  26.1     10 329
+\end{verbatim}
+
+\newpage
+
+\hypertarget{problem-07---chapter-42-exercise-03bd}{%
+\subsection{Problem \#07 - Chapter 42 Exercise
+\#03BD}\label{problem-07---chapter-42-exercise-03bd}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\FunctionTok{library}\NormalTok{(lubridate)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'lubridate' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'lubridate'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     date, intersect, setdiff, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Dates006.tib}\SpecialCharTok{$}\NormalTok{dateData}\OtherTok{\textless{}{-}}\FunctionTok{ydm}\NormalTok{(Dates006.tib}\SpecialCharTok{$}\NormalTok{dateData)}
+\NormalTok{Dates006.tib}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{filter}\NormalTok{(dateData}\SpecialCharTok{\textless{}}\StringTok{"1910{-}01{-}01"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 27 x 5
+##    dateData   soilent green people nooooo
+##    <date>       <dbl> <dbl> <chr>  <chr> 
+##  1 1900-11-21    11.8 41.6  B      X     
+##  2 1902-10-10    12.0 89.8  A      X     
+##  3 1902-10-20    11.7 65.5  A      X     
+##  4 1903-03-14    11.7 15.9  B      X     
+##  5 1903-08-05    11.8 45.1  B      X     
+##  6 1903-08-18    12.0 30.7  B      X     
+##  7 1903-02-10    11.1 -1.54 B      X     
+##  8 1903-02-28    11.1 53.3  A      X     
+##  9 1903-05-18    10.4 12.0  B      X     
+## 10 1903-07-10    13.6 58.4  A      X     
+## # i 17 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Dates007.tib}\SpecialCharTok{$}\NormalTok{date.data}\OtherTok{=}\FunctionTok{make\_date}\NormalTok{(}\AttributeTok{year =}\NormalTok{ Dates007.tib}\SpecialCharTok{$}\NormalTok{years.data,}
+                                 \AttributeTok{month =} \FunctionTok{match}\NormalTok{(Dates007.tib}\SpecialCharTok{$}\NormalTok{months.data,month.abb),}
+                                 \AttributeTok{day =}\NormalTok{ Dates007.tib}\SpecialCharTok{$}\NormalTok{days.data)}
+
+\NormalTok{Dates007.tib}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{filter}\NormalTok{(date.data}\SpecialCharTok{\textgreater{}=} \StringTok{"1960{-}02{-}01"} \SpecialCharTok{\&}\NormalTok{ date.data }\SpecialCharTok{\textless{}=} \StringTok{"1962{-}09{-}02"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 10 x 7
+##    months.data years.data days.data    Ill     be back   date.data 
+##    <chr>            <int> <chr>      <dbl>  <dbl> <chr>  <date>    
+##  1 Oct               1960 23        -0.956  4.50  T-800  1960-10-23
+##  2 Aug               1960 19        -0.743  3.16  T-1000 1960-08-19
+##  3 Aug               1960 02        -0.986  3.87  T-1000 1960-08-02
+##  4 Feb               1960 28        -0.984  2.41  T-1000 1960-02-28
+##  5 Aug               1960 26        -0.900  2.79  T-1000 1960-08-26
+##  6 Feb               1962 25        -0.779 -3.75  T-1000 1962-02-25
+##  7 Jan               1962 26        -0.920  2.86  T-1000 1962-01-26
+##  8 May               1962 25        -0.995 -0.373 T-1000 1962-05-25
+##  9 Jun               1962 08        -0.996  1.31  T-1000 1962-06-08
+## 10 Apr               1962 02        -0.890 -2.66  T-1000 1962-04-02
+\end{verbatim}
+
+\newpage
+
+\hypertarget{problem-08---chapter-42-exercise-04c}{%
+\subsection{Problem \#08 - Chapter 42 Exercise
+\#04C}\label{problem-08---chapter-42-exercise-04c}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\NormalTok{answer}\OtherTok{\textless{}{-}}\NormalTok{ggplot002.tib}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(y))}
+
+\NormalTok{answer}\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(}\FunctionTok{head}\NormalTok{(answer, }\DecValTok{10}\NormalTok{), }\FunctionTok{tail}\NormalTok{(answer, }\DecValTok{10}\NormalTok{))}
+
+\NormalTok{answer}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 20 x 4
+##        x        y grade course
+##    <dbl>    <dbl> <chr> <chr> 
+##  1   1.5  -0.0397 A     J     
+##  2   2.5  -2.25   C     J     
+##  3   3.5  -4.92   D     J     
+##  4   1.5  -5.55   B     J     
+##  5   1.5  -5.95   C     J     
+##  6   1.5  -6.11   D     J     
+##  7   2.5  -6.36   D     J     
+##  8   6.5  -6.92   C     K     
+##  9   6.5  -7.40   A     K     
+## 10   3.5  -9.25   A     J     
+## 11  20.5 -43.5    D     N     
+## 12  19.5 -44.2    B     N     
+## 13  19.5 -47.0    D     N     
+## 14  20.5 -48.3    B     N     
+## 15  19.5 -49.7    C     N     
+## 16  17.5 -49.9    B     N     
+## 17  17.5 -51.2    D     N     
+## 18  19.5 -51.4    A     N     
+## 19  20.5 -55.7    A     N     
+## 20  20.5 -60.4    C     N
+\end{verbatim}
+
+\end{document}

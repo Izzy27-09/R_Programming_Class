@@ -1,0 +1,141 @@
+---
+title: "HW_09"
+author: "izd3"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("HomeworkObjects.RData")
+```
+
+
+Use only commands \& functions that are shown in the indicated chapter or prior chapters.
+
+\newpage
+
+## Problem #01 - Chapter 34 Exercise #01B  
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+library(ggplot2)
+library(scales)
+scalesGraph000+scale_x_discrete(name='Flavors',labels=c('chocolate',
+                                                        'raspberry'
+                                                        ,'strawberry',
+                                                        'vanilla'))+
+  scale_fill_manual(values=c('red','white','black'),breaks = c('c','n','s'),
+                    labels=c('chips','nuts','sprinkles'),name='Toppings')+
+  scale_y_continuous(name='Frequency',breaks = NULL)
+
+```
+
+\newpage
+
+## Problem #02 - Chapter 34 Exercise #02B  
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+scalesGraph001+scale_size_manual(name='Flavor',
+                                 labels=c('chocolate','strawberry', 
+                                          'raspberry','vanilla'),
+                                 values = c(4,3,2,1))
+
+```
+
+
+\newpage
+
+## Problem #03 - Chapter 34 Exercise #04A ( top left )  
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+scaled001.dat|>
+  ggplot(mapping = aes(x=weight,y=top,color=flav))+geom_jitter(shape=10)+
+  scale_color_manual(name='Flavor',breaks = c('c','s','r','v'),
+                     labels=c('Chocolate','Strawberry','Raspberry','Vanilla'),
+                     values = c('blue','red','black','white'))
+
+```
+
+\newpage
+
+## Problem #04 - Chapter 35 Exercise #01D   
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+scalesGraph002+scale_color_gradient(name='Red to Blue',
+                                    low = 'red',high = 'blue')
+```
+
+
+\newpage
+
+## Problem #05 - Chapter 35 Exercise #03A (red - blue)  
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+scaled002.tib|>
+  ggplot(mapping = aes(x=var.1,y=var.5,color=var.3))+geom_violin(fill='grey')+
+  geom_point()+
+  scale_x_log10(name='Log 10 Variable 1',breaks=c(1,5,10,15))+
+  scale_color_gradient(name='VAR 3',low = 'red',high = 'blue')
+  
+
+```
+
+
+\newpage
+
+## Problem #06 - Chapter 37 Exercise #03B  
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+library(forcats)
+fact<-factor(factorData005.fact,levels = c('four star','three star'
+                                           ,'two star','one star','zero star'))
+table(fact)
+
+unclass(fact)
+
+```
+
+\newpage
+
+## Problem #07 - Chapter 37 Exercise #04B   
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+table(factorData005.fact)
+
+factorData005.fact<-fct_recode(factorData005.fact,`no stars`="zero stars",
+                               `one,two, or three stars`='one star',
+                               `one,two, or three stars`='two stars',
+                 `one,two, or three stars`='three stars')
+table(factorData005.fact)
+
+```
+
+
+\newpage
+
+## Problem #08 - Chapter 33 Exercise #05E  
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+  test<-data.frame(factorData006.fact=fct_infreq(factorData006.fact),
+                   factorData004.fact =factorData004.fact)
+test$factorData004.fact=factor(test$factorData004.fact,levels = LETTERS[11:20])
+test|>
+  ggplot(mapping = aes(x=factorData006.fact,fill=factorData004.fact))+
+  geom_bar()+
+  scale_fill_manual(breaks = LETTERS[11:20],
+                    labels=LETTERS[11:20],
+                    values = c('red','white','red','white','red','white',
+                               'red','white','red','white'),drop=FALSE)+
+  scale_x_discrete(breaks=c('reference','gnat','pig'),labels=c('REFERENCE',
+                                                               'GNAT',
+                                                               'PIG'))
+```

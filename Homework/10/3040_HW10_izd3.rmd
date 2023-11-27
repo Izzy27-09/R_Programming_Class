@@ -1,0 +1,145 @@
+---
+title: "HW_10"
+author: "izd3"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("HomeworkObjects.RData")
+```
+
+\newpage
+
+## Problem #01 - Chapter 38 Exercise #01BC 
+
+```{r  out.height = 300, fig.height = 4, fig.width = 12}
+# Show your work here
+library(lubridate)
+Dates001.tib
+
+mdy(Dates001.tib$A_Dates)
+
+ydm(Dates001.tib$C_Dates)
+
+
+
+```
+
+\newpage
+
+## Problem #02 - Chapter 38 Exercise #02ABC  
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+Dates002.tib$dateData=make_date(year = Dates002.tib$A,
+                                month = Dates002.tib$B,
+                                day = Dates002.tib$C)
+Dates002.tib
+
+Dates003.tib$dateData=make_date(year = Dates003.tib$B,
+                                month = Dates003.tib$A,
+                                day = Dates003.tib$C)
+Dates003.tib
+
+
+
+Dates004.tib$dateData=make_date(year = Dates004.tib$C,
+                                month = match(Dates004.tib$A,month.abb),
+                                day = Dates004.tib$B)
+
+Dates004.tib
+```
+
+
+\newpage
+
+## Problem #03 - Chapter 38 Exercise #03 
+
+```{r  out.height = 400, fig.height = 6, fig.width = 12}
+# Show your work here
+library(tibble)
+DATES005.tib <- tibble(
+  Dates005 = ymd(Dates005),        
+  YEAR = year(ymd(Dates005)),
+  MONTH = month(ymd(Dates005)),
+  DAY = day(ymd(Dates005)),
+  `FULL NAMED DAY` = weekdays(ymd(Dates005))
+)
+DATES005.tib
+
+```
+
+\newpage
+
+## Problem #04 - Chapter 38 Exercise #04C next to #5C   
+
+```{r  out.height = 400, fig.height = 4, fig.width = 12}
+# Show your work here
+library(ggplot2)
+Dates007.tib$dateData=make_date(year = Dates007.tib$years.data,
+                                month = match(Dates007.tib$months.data,month.abb),
+                                day = Dates007.tib$days.data)
+
+Dates007.tib|>
+  ggplot(mapping = aes(x=dateData,y=Ill,size=back,color=be))+
+  geom_point()+
+  scale_x_date(breaks = make_date(year=c(1900,1950,2000)),date_labels = '%Y')
+
+Dates007.tib|>
+  ggplot(mapping = aes(x=be,y=dateData,color=Ill,shape=back))+
+  geom_point()+
+  scale_color_gradient(name="I\'LL",low ="black",high = "red" )+
+  scale_y_date(name = "DATEDATA",
+               breaks =make_date(year=c(1900,1925,1950,1975,2000,2025)),
+               date_labels = '%Y' )+
+  scale_shape_manual(name='BACK!',breaks = c("T-1000","T-800"),values = c(6,17))
+```
+
+
+\newpage
+
+## Problem #05 - Chapter 39 Exercise #05ABC  
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+library(stringr)
+str_locate(sentences,pattern = "the")
+str_locate(sentences,pattern = "to")
+str_locate(sentences,pattern = "eam")
+
+```
+
+
+\newpage
+
+## Problem #06 - Chapter 40 Exercise #01B  
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+str_subset(sentences,pattern = "ch[re][en]")
+
+```
+
+\newpage
+
+## Problem #07 - Chapter 40 Exercise #02A   
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+str_subset(sentences,pattern = "(ina)|(in a)")
+
+```
+
+
+\newpage
+
+## Problem #08 - Chapter 40 Exercise #03B  
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+str_subset(sentences,pattern = "^(A|Ad|Add|Aing|Ading|Adding)")
+
+```

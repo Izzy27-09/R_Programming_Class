@@ -1,0 +1,187 @@
+---
+title: "HW_12"
+author: "izd3"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("HomeworkObjects.RData")
+```
+
+\newpage
+
+\newpage
+
+## Problem #01 - Chapter 44 Exercise #2A 
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+library(tidyverse)
+Joins002.tib$FIRSTNAME=tolower(Joins002.tib$FIRSTNAME)
+Joins002.tib$LASTNAME=tolower(Joins002.tib$LASTNAME)
+
+Joins003.dat$firstname=tolower(Joins003.dat$firstname)
+Joins003.dat$lastname=tolower(Joins003.dat$lastname)
+
+inner_join(Joins002.tib,Joins003.dat,by=join_by(FIRSTNAME=="firstname",
+                                                LASTNAME=="lastname"))
+
+
+```
+
+\newpage
+
+## Problem #02 - Chapter 44 Exercise #02A 
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+Joins004.tib
+Joins005.tib
+
+inner_join(Joins004.tib,Joins005.tib,
+           by=join_by("registrationCode"=="ID_NUMBER",
+                                                "LastNames"=="LastNames",
+                                                "firstNames"=="firstNames"))
+
+
+```
+
+\newpage
+
+## Problem #03 - Chapter 45 Exercise #04
+```{r  out.height = 300, fig.height = 8, fig.width = 12}
+# Show your work here
+joined<-full_join(Joins006.tib,Joins008.tib,by=c('X3','X1','X2'))
+
+joined<-full_join(joined,Joins007.tib,
+                  by=join_by('X2'=="shape",'X3'=='calendar',
+                                                 'X1'=='length'))
+mean_vals<-joined|>
+  group_by(X3)|>
+  summarise(
+    mean_len=mean(X1)
+  )
+mean_vals$X3=mdy(mean_vals$X3)
+
+joined$X3=mdy(joined$X3)
+joined<-joined|>
+  full_join(mean_vals,by='X3')
+joined|>
+  ggplot(aes(x=X3,y=X1,color=X2))+geom_point()+
+  scale_x_date(breaks = make_date(month = 10,day = c(9,16),year = 2023),
+               date_labels = "%b %d")+
+  labs(
+    x='calendar',
+    y='length',
+    color='shape'
+  )+
+  geom_point(aes(x=X3,y=mean_len),size=6,shape=4,color='black')+
+  geom_text(aes(x=X3,y=mean_len),
+            label="mean",color="black",nudge_x = 0.8)
+  
+
+
+```
+
+\newpage
+
+## Problem #04 - Chapter 48 Exercise #2 
+
+```{r  out.height = 400, fig.height = 4, fig.width = 12}
+# Show your work here
+Long001b.tib
+
+MyLongTibble<-Wide001.tib|>
+  pivot_longer(
+    cols = !COLOUR,
+    names_to=c("Discard","TYPE"),
+    names_sep = "e",
+    values_to = c("alphabet")
+  )|>
+  select(!Discard)|>
+  mutate(TYPE=as.integer(TYPE))
+
+MyLongTibble
+
+
+
+```
+
+
+\newpage
+
+## Problem #05 - Chapter 48 Exercise #06  
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+newtib<-Wide003.tib|>
+  pivot_longer(cols = !NAME,
+               names_to = c("Discard","AGE"),
+               names_sep = "E",
+               values_to = "VALUES")|>
+  select(!Discard)|>
+  mutate(AGE=as.integer(AGE))
+
+newtib|>
+  ggplot(aes(x=AGE,y=VALUES,color=NAME))+geom_line()+geom_point()
+  
+
+```
+
+
+\newpage
+
+## Problem #06 - Chapter 49 Exercise #2 
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+Wide001.tib
+MyWideTibble<-Long001a.tib|>
+  pivot_wider(id_cols = COLOUR,names_from = TYPE,values_from = alphabet)
+
+MyWideTibble
+
+```
+
+\newpage
+
+## Problem #07 - Chapter 50 Exercise #01   
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+MyLongTibble<-Split001.tib|>
+  separate(col = stuff,
+           into = c("NUMBER","UPPER","LOWER","LOGICAL"),sep = "-",convert = T)
+MyLongTibble
+Separated001.tib
+
+```
+
+
+\newpage
+
+## Problem #08 - Chapter 50 Exercise #03 
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+Split002.tib|>
+  separate(col = LotsOfData,into = c("Discard","LOCATION"),sep ="LEAF_" )|>
+  select(!Discard)|>
+  separate(col = LOCATION,into = c("DISCARD","LOCATION"),
+           sep ="[0-9][0-9][0-9]_[0-9][0-9][0-9][0-9]_" )|>
+  select(!DISCARD)|>
+  separate(col = LOCATION,into = c("LOCATION","RID"))|>
+  select(!RID)|>
+  ggplot(aes(x=shapes,fill=LOCATION))+geom_bar()+
+  scale_fill_manual(breaks = c("AGRI","ARTS"),
+                    labels=c("Ag Quad","Arts Quad"),
+                    values = c("red","white"),
+                    name="location")+
+  labs(
+    title="This is the title"
+  )
+
+```

@@ -1,0 +1,523 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={HW\_12},
+  pdfauthor={izd3},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{HW\_12}
+\author{izd3}
+\date{}
+
+\begin{document}
+\maketitle
+
+\newpage
+
+\newpage
+
+\hypertarget{problem-01---chapter-44-exercise-2a}{%
+\subsection{Problem \#01 - Chapter 44 Exercise
+\#2A}\label{problem-01---chapter-44-exercise-2a}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tidyverse' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'ggplot2' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'tibble' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'purrr' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'dplyr' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'stringr' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'forcats' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'lubridate' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.2     v readr     2.1.4
+## v forcats   1.0.0     v stringr   1.5.0
+## v ggplot2   3.4.3     v tibble    3.2.1
+## v lubridate 1.9.3     v tidyr     1.3.0
+## v purrr     1.0.2     
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Joins002.tib}\SpecialCharTok{$}\NormalTok{FIRSTNAME}\OtherTok{=}\FunctionTok{tolower}\NormalTok{(Joins002.tib}\SpecialCharTok{$}\NormalTok{FIRSTNAME)}
+\NormalTok{Joins002.tib}\SpecialCharTok{$}\NormalTok{LASTNAME}\OtherTok{=}\FunctionTok{tolower}\NormalTok{(Joins002.tib}\SpecialCharTok{$}\NormalTok{LASTNAME)}
+
+\NormalTok{Joins003.dat}\SpecialCharTok{$}\NormalTok{firstname}\OtherTok{=}\FunctionTok{tolower}\NormalTok{(Joins003.dat}\SpecialCharTok{$}\NormalTok{firstname)}
+\NormalTok{Joins003.dat}\SpecialCharTok{$}\NormalTok{lastname}\OtherTok{=}\FunctionTok{tolower}\NormalTok{(Joins003.dat}\SpecialCharTok{$}\NormalTok{lastname)}
+
+\FunctionTok{inner\_join}\NormalTok{(Joins002.tib,Joins003.dat,}\AttributeTok{by=}\FunctionTok{join\_by}\NormalTok{(FIRSTNAME}\SpecialCharTok{==}\StringTok{"firstname"}\NormalTok{,}
+\NormalTok{                                                LASTNAME}\SpecialCharTok{==}\StringTok{"lastname"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 4
+##   LASTNAME  FIRSTNAME `Favorite Color` favoritecolor
+##   <chr>     <chr>     <chr>            <chr>        
+## 1 deherrera jacob     honeydew4        navajowhite1
+\end{verbatim}
+
+\newpage
+
+\hypertarget{problem-02---chapter-44-exercise-02a}{%
+\subsection{Problem \#02 - Chapter 44 Exercise
+\#02A}\label{problem-02---chapter-44-exercise-02a}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\NormalTok{Joins004.tib}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 20 x 4
+##    LastNames        firstNames registrationCode dataStuff
+##    <chr>            <chr>      <chr>                <dbl>
+##  1 al-Azad          Jessica    282                   99.1
+##  2 Morett           Matthew    244                   86.8
+##  3 Nelson           Tasneem    371                   86.7
+##  4 Hallam           Robert     174                   85.8
+##  5 Munoz Torres     Wesley     469                   93.8
+##  6 Joel             Draven     696                   94.0
+##  7 el-Tariq         Taariq     683                   92.0
+##  8 Nelson           Tasneem    328                   92.0
+##  9 el-Tariq         Taariq     260                   84.5
+## 10 Deherrera        Jacob      392                   84.9
+## 11 Vogt             Chantelle  175                   87.4
+## 12 Morett           Matthew    357                   94.6
+## 13 Nelson           Tasneem    029                   82.5
+## 14 Hallam           Robert     525                   88.1
+## 15 Morett           Matthew    310                   99.8
+## 16 Morett           Matthew    182                   81.0
+## 17 Williams Sanders Albert     737                   94.3
+## 18 al-Azer          Noel       783                   86.9
+## 19 Conner           Deshaun    975                   94.7
+## 20 Nelson           Tasneem    206                   97.1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Joins005.tib}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 21 x 5
+##    LastNames        firstNames ID_NUMBER dataThings coloredThings 
+##    <chr>            <chr>      <chr>          <dbl> <chr>         
+##  1 Morett           Matthew    182             81.0 grey71        
+##  2 Conner           Deshaun    975             94.7 steelblue4    
+##  3 el-Tariq         Taariq     683             92.0 sienna1       
+##  4 Williams Sanders Albert     737             94.3 grey40        
+##  5 al-Azad          Jessica    282             99.1 goldenrod4    
+##  6 Munoz Torres     Wesley     161             98.0 cornsilk2     
+##  7 Munoz Torres     Wesley     469             93.8 darkslategray4
+##  8 Villamil Buenfil Renita     525             85.0 navajowhite   
+##  9 Vogt             Chantelle  175             87.4 hotpink2      
+## 10 Deherrera        Jacob      169             85.7 slategray3    
+## # i 11 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{inner\_join}\NormalTok{(Joins004.tib,Joins005.tib,}\AttributeTok{by=}\FunctionTok{join\_by}\NormalTok{(}\StringTok{"registrationCode"}\SpecialCharTok{==}\StringTok{"ID\_NUMBER"}\NormalTok{,}
+                                                \StringTok{"LastNames"}\SpecialCharTok{==}\StringTok{"LastNames"}\NormalTok{,}
+                                                \StringTok{"firstNames"}\SpecialCharTok{==}\StringTok{"firstNames"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 14 x 6
+##    LastNames      firstNames registrationCode dataStuff dataThings coloredThings
+##    <chr>          <chr>      <chr>                <dbl>      <dbl> <chr>        
+##  1 al-Azad        Jessica    282                   99.1       99.1 goldenrod4   
+##  2 Morett         Matthew    244                   86.8       86.8 green1       
+##  3 Munoz Torres   Wesley     469                   93.8       93.8 darkslategra~
+##  4 Joel           Draven     696                   94.0       94.0 cornflowerbl~
+##  5 el-Tariq       Taariq     683                   92.0       92.0 sienna1      
+##  6 el-Tariq       Taariq     260                   84.5       84.5 bisque3      
+##  7 Deherrera      Jacob      392                   84.9       84.9 grey8        
+##  8 Vogt           Chantelle  175                   87.4       87.4 hotpink2     
+##  9 Morett         Matthew    357                   94.6       94.6 thistle      
+## 10 Nelson         Tasneem    029                   82.5       82.5 palevioletre~
+## 11 Morett         Matthew    182                   81.0       81.0 grey71       
+## 12 Williams Sand~ Albert     737                   94.3       94.3 grey40       
+## 13 Conner         Deshaun    975                   94.7       94.7 steelblue4   
+## 14 Nelson         Tasneem    206                   97.1       97.1 hotpink1
+\end{verbatim}
+
+\newpage
+
+\hypertarget{problem-03---chapter-45-exercise-04}{%
+\subsection{Problem \#03 - Chapter 45 Exercise
+\#04}\label{problem-03---chapter-45-exercise-04}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\NormalTok{joined}\OtherTok{\textless{}{-}}\FunctionTok{full\_join}\NormalTok{(Joins006.tib,Joins008.tib,}\AttributeTok{by=}\FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}X3\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}X1\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}X2\textquotesingle{}}\NormalTok{))}
+
+\NormalTok{joined}\OtherTok{\textless{}{-}}\FunctionTok{full\_join}\NormalTok{(joined,Joins007.tib,}\AttributeTok{by=}\FunctionTok{join\_by}\NormalTok{(}\StringTok{\textquotesingle{}X2\textquotesingle{}}\SpecialCharTok{==}\StringTok{"shape"}\NormalTok{,}\StringTok{\textquotesingle{}X3\textquotesingle{}}\SpecialCharTok{==}\StringTok{\textquotesingle{}calendar\textquotesingle{}}\NormalTok{,}
+                                                 \StringTok{\textquotesingle{}X1\textquotesingle{}}\SpecialCharTok{==}\StringTok{\textquotesingle{}length\textquotesingle{}}\NormalTok{))}
+\NormalTok{mean\_vals}\OtherTok{\textless{}{-}}\NormalTok{joined}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{group\_by}\NormalTok{(X3)}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{mean\_len=}\FunctionTok{mean}\NormalTok{(X1)}
+\NormalTok{  )}
+\NormalTok{mean\_vals}\SpecialCharTok{$}\NormalTok{X3}\OtherTok{=}\FunctionTok{mdy}\NormalTok{(mean\_vals}\SpecialCharTok{$}\NormalTok{X3)}
+
+\NormalTok{joined}\SpecialCharTok{$}\NormalTok{X3}\OtherTok{=}\FunctionTok{mdy}\NormalTok{(joined}\SpecialCharTok{$}\NormalTok{X3)}
+\NormalTok{joined}\OtherTok{\textless{}{-}}\NormalTok{joined}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{full\_join}\NormalTok{(mean\_vals,}\AttributeTok{by=}\StringTok{\textquotesingle{}X3\textquotesingle{}}\NormalTok{)}
+\NormalTok{joined}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{X3,}\AttributeTok{y=}\NormalTok{X1,}\AttributeTok{color=}\NormalTok{X2))}\SpecialCharTok{+}\FunctionTok{geom\_point}\NormalTok{()}\SpecialCharTok{+}
+  \FunctionTok{scale\_x\_date}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{make\_date}\NormalTok{(}\AttributeTok{month =} \DecValTok{10}\NormalTok{,}\AttributeTok{day =} \FunctionTok{c}\NormalTok{(}\DecValTok{9}\NormalTok{,}\DecValTok{16}\NormalTok{),}\AttributeTok{year =} \DecValTok{2023}\NormalTok{),}
+               \AttributeTok{date\_labels =} \StringTok{"\%b \%d"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{x=}\StringTok{\textquotesingle{}calendar\textquotesingle{}}\NormalTok{,}
+    \AttributeTok{y=}\StringTok{\textquotesingle{}length\textquotesingle{}}\NormalTok{,}
+    \AttributeTok{color=}\StringTok{\textquotesingle{}shape\textquotesingle{}}
+\NormalTok{  )}\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{X3,}\AttributeTok{y=}\NormalTok{mean\_len),}\AttributeTok{size=}\DecValTok{6}\NormalTok{,}\AttributeTok{shape=}\DecValTok{4}\NormalTok{,}\AttributeTok{color=}\StringTok{\textquotesingle{}black\textquotesingle{}}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{geom\_text}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{X3,}\AttributeTok{y=}\NormalTok{mean\_len),}\AttributeTok{label=}\StringTok{"mean"}\NormalTok{,}\AttributeTok{color=}\StringTok{"black"}\NormalTok{,}\AttributeTok{nudge\_x =} \FloatTok{0.8}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[height=300]{3040_HW12_izd3_files/figure-latex/unnamed-chunk-3-1}
+
+\newpage
+
+\hypertarget{problem-04---chapter-48-exercise-2}{%
+\subsection{Problem \#04 - Chapter 48 Exercise
+\#2}\label{problem-04---chapter-48-exercise-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\NormalTok{Long001b.tib}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 3
+##   COLOUR           TYPE alphabet
+##   <chr>           <int> <chr>   
+## 1 mediumturquoise     1 E       
+## 2 mediumturquoise     2 P       
+## 3 mediumturquoise     3 G       
+## 4 peru                1 C       
+## 5 peru                2 N       
+## 6 peru                3 U
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{MyLongTibble}\OtherTok{\textless{}{-}}\NormalTok{Wide001.tib}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{pivot\_longer}\NormalTok{(}
+    \AttributeTok{cols =} \SpecialCharTok{!}\NormalTok{COLOUR,}
+    \AttributeTok{names\_to=}\FunctionTok{c}\NormalTok{(}\StringTok{"Discard"}\NormalTok{,}\StringTok{"TYPE"}\NormalTok{),}
+    \AttributeTok{names\_sep =} \StringTok{"e"}\NormalTok{,}
+    \AttributeTok{values\_to =} \FunctionTok{c}\NormalTok{(}\StringTok{"alphabet"}\NormalTok{)}
+\NormalTok{  )}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{!}\NormalTok{Discard)}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{TYPE=}\FunctionTok{as.integer}\NormalTok{(TYPE))}
+
+\NormalTok{MyLongTibble}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 3
+##   COLOUR           TYPE alphabet
+##   <chr>           <int> <chr>   
+## 1 mediumturquoise     1 E       
+## 2 mediumturquoise     2 P       
+## 3 mediumturquoise     3 G       
+## 4 peru                1 C       
+## 5 peru                2 N       
+## 6 peru                3 U
+\end{verbatim}
+
+\newpage
+
+\hypertarget{problem-05---chapter-48-exercise-06}{%
+\subsection{Problem \#05 - Chapter 48 Exercise
+\#06}\label{problem-05---chapter-48-exercise-06}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\NormalTok{newtib}\OtherTok{\textless{}{-}}\NormalTok{Wide003.tib}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \SpecialCharTok{!}\NormalTok{NAME,}
+               \AttributeTok{names\_to =} \FunctionTok{c}\NormalTok{(}\StringTok{"Discard"}\NormalTok{,}\StringTok{"AGE"}\NormalTok{),}
+               \AttributeTok{names\_sep =} \StringTok{"E"}\NormalTok{,}
+               \AttributeTok{values\_to =} \StringTok{"VALUES"}\NormalTok{)}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{!}\NormalTok{Discard)}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{AGE=}\FunctionTok{as.integer}\NormalTok{(AGE))}
+
+\NormalTok{newtib}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{AGE,}\AttributeTok{y=}\NormalTok{VALUES,}\AttributeTok{color=}\NormalTok{NAME))}\SpecialCharTok{+}\FunctionTok{geom\_line}\NormalTok{()}\SpecialCharTok{+}\FunctionTok{geom\_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[height=300]{3040_HW12_izd3_files/figure-latex/unnamed-chunk-5-1}
+
+\newpage
+
+\hypertarget{problem-06---chapter-49-exercise-2}{%
+\subsection{Problem \#06 - Chapter 49 Exercise
+\#2}\label{problem-06---chapter-49-exercise-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\NormalTok{Wide001.tib}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 4
+##   COLOUR          type1 type2 type3
+##   <chr>           <chr> <chr> <chr>
+## 1 mediumturquoise E     P     G    
+## 2 peru            C     N     U
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{MyWideTibble}\OtherTok{\textless{}{-}}\NormalTok{Long001a.tib}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{pivot\_wider}\NormalTok{(}\AttributeTok{id\_cols =}\NormalTok{ COLOUR,}\AttributeTok{names\_from =}\NormalTok{ TYPE,}\AttributeTok{values\_from =}\NormalTok{ alphabet)}
+
+\NormalTok{MyWideTibble}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 4
+##   COLOUR          type1 type2 type3
+##   <chr>           <chr> <chr> <chr>
+## 1 mediumturquoise E     P     G    
+## 2 peru            C     N     U
+\end{verbatim}
+
+\newpage
+
+\hypertarget{problem-07---chapter-50-exercise-01}{%
+\subsection{Problem \#07 - Chapter 50 Exercise
+\#01}\label{problem-07---chapter-50-exercise-01}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\NormalTok{MyLongTibble}\OtherTok{\textless{}{-}}\NormalTok{Split001.tib}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{separate}\NormalTok{(}\AttributeTok{col =}\NormalTok{ stuff,}\AttributeTok{into =} \FunctionTok{c}\NormalTok{(}\StringTok{"NUMBER"}\NormalTok{,}\StringTok{"UPPER"}\NormalTok{,}\StringTok{"LOWER"}\NormalTok{,}\StringTok{"LOGICAL"}\NormalTok{),}\AttributeTok{sep =} \StringTok{"{-}"}\NormalTok{,}\AttributeTok{convert =}\NormalTok{ T)}
+\NormalTok{MyLongTibble}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 10 x 4
+##    NUMBER UPPER LOWER LOGICAL
+##     <int> <chr> <chr> <lgl>  
+##  1     26 C     d     FALSE  
+##  2     37 J     m     FALSE  
+##  3      9 K     v     FALSE  
+##  4     55 A     r     TRUE   
+##  5     41 N     p     TRUE   
+##  6     62 X     x     TRUE   
+##  7     59 Z     o     TRUE   
+##  8      1 R     c     FALSE  
+##  9     20 O     s     TRUE   
+## 10     87 F     z     TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Separated001.tib}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 10 x 4
+##    NUMBER UPPER LOWER LOGICAL
+##    <chr>  <chr> <chr> <chr>  
+##  1 26     C     d     FALSE  
+##  2 37     J     m     FALSE  
+##  3 9      K     v     FALSE  
+##  4 55     A     r     TRUE   
+##  5 41     N     p     TRUE   
+##  6 62     X     x     TRUE   
+##  7 59     Z     o     TRUE   
+##  8 1      R     c     FALSE  
+##  9 20     O     s     TRUE   
+## 10 87     F     z     TRUE
+\end{verbatim}
+
+\newpage
+
+\hypertarget{problem-08---chapter-50-exercise-03}{%
+\subsection{Problem \#08 - Chapter 50 Exercise
+\#03}\label{problem-08---chapter-50-exercise-03}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\NormalTok{Split002.tib}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{separate}\NormalTok{(}\AttributeTok{col =}\NormalTok{ LotsOfData,}\AttributeTok{into =} \FunctionTok{c}\NormalTok{(}\StringTok{"Discard"}\NormalTok{,}\StringTok{"LOCATION"}\NormalTok{),}\AttributeTok{sep =}\StringTok{"LEAF\_"}\NormalTok{ )}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{!}\NormalTok{Discard)}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{separate}\NormalTok{(}\AttributeTok{col =}\NormalTok{ LOCATION,}\AttributeTok{into =} \FunctionTok{c}\NormalTok{(}\StringTok{"DISCARD"}\NormalTok{,}\StringTok{"LOCATION"}\NormalTok{),}
+           \AttributeTok{sep =}\StringTok{"[0{-}9][0{-}9][0{-}9]\_[0{-}9][0{-}9][0{-}9][0{-}9]\_"}\NormalTok{ )}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{!}\NormalTok{DISCARD)}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{separate}\NormalTok{(}\AttributeTok{col =}\NormalTok{ LOCATION,}\AttributeTok{into =} \FunctionTok{c}\NormalTok{(}\StringTok{"LOCATION"}\NormalTok{,}\StringTok{"RID"}\NormalTok{))}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{!}\NormalTok{RID)}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{shapes,}\AttributeTok{fill=}\NormalTok{LOCATION))}\SpecialCharTok{+}\FunctionTok{geom\_bar}\NormalTok{()}\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{c}\NormalTok{(}\StringTok{"AGRI"}\NormalTok{,}\StringTok{"ARTS"}\NormalTok{),}
+                    \AttributeTok{labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"Ag Quad"}\NormalTok{,}\StringTok{"Arts Quad"}\NormalTok{),}
+                    \AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{,}\StringTok{"white"}\NormalTok{),}
+                    \AttributeTok{name=}\StringTok{"location"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title=}\StringTok{"This is the title"}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[height=300]{3040_HW12_izd3_files/figure-latex/unnamed-chunk-8-1}
+
+\end{document}

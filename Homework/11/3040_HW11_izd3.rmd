@@ -1,0 +1,155 @@
+---
+title: "HW_11"
+author: "izd3"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("HomeworkObjects.RData")
+```
+
+\newpage
+
+## Problem #01 - Chapter 40 Exercise #03B (Alternating with all the given strings will get minimal credit) 
+
+```{r  out.height = 300, fig.height = 4, fig.width = 12}
+# Show your work here
+library(stringr)
+starting_strings <- c("A", "Ad", "Add", "Aing", "Ading", "Adding")
+filtered_sentences <- str_subset(sentences, str_c("^", paste(starting_strings, collapse = "|")))
+length(filtered_sentences)
+filtered_sentences
+
+
+```
+
+\newpage
+
+## Problem #02 - Chapter 40 Exercise #10  
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+
+filtered_sentences <- str_subset(sentences, "^The.*ed.*the .*ed$")
+filtered_sentences
+```
+
+
+\newpage
+
+## Problem #03 - Chapter 40 Exercise #11 
+
+```{r  out.height = 400, fig.height = 6, fig.width = 12}
+# Show your work here
+pattern <- "(er|se).*([a-zA-Z])\\2.*\\1"
+
+# Create a single vector containing all strings that satisfy the specified conditions
+filtered_sentences <- str_subset(sentences, pattern)
+
+# Display the resulting vector
+ filtered_sentences
+
+```
+
+\newpage
+
+
+## Problem #04 - Chapter 41 Exercise #5 (display all this information in a single tibble/dataframe)  
+
+```{r  out.height = 400, fig.height = 4, fig.width = 12}
+# Show your work here
+library(openintro)
+library(dplyr)
+data("nycflights")
+
+nycflights|>
+  group_by(carrier,origin)|>
+  summarise(
+    avg_dep_delay = mean(dep_delay, na.rm = TRUE),
+    avg_arr_delay = mean(arr_delay, na.rm = TRUE),
+    min_dep_delay = min(dep_delay, na.rm = TRUE),
+    max_dep_delay = max(dep_delay, na.rm = TRUE),
+    min_arr_delay = min(arr_delay, na.rm = TRUE),
+    max_arr_delay = max(arr_delay, na.rm = TRUE)
+  )
+
+```
+
+
+\newpage
+
+## Problem #05 - Chapter 41 Exercise #06  
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+library(babynames)
+library(ggplot2)
+babynames|>
+  group_by(
+    sex,year
+  )|>
+  summarise(max_num=max(n))|>
+  ggplot(aes(y=max_num,x=year,color=sex))+geom_smooth(aes(linetype=sex))+
+  labs(
+    x="year",
+    y="maximum"
+  )
+
+```
+
+
+\newpage
+
+## Problem #06 - Chapter 42 Exercise #2ABC 
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+ChickWeight.tib|>
+  filter(weight>350 | Time<1)
+
+Formaldehyde.tib|>
+  filter(carb<=0.3 & optden>0.2)
+
+Loblolly.tib|>
+  filter(age>=4&age<=10&Seed==329)
+
+```
+
+\newpage
+
+## Problem #07 - Chapter 42 Exercise #03BD   
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+library(lubridate)
+Dates006.tib$dateData<-ydm(Dates006.tib$dateData)
+Dates006.tib|>
+  filter(dateData<"1910-01-01")
+
+Dates007.tib$date.data=make_date(year = Dates007.tib$years.data,
+                                 month = match(Dates007.tib$months.data,month.abb),
+                                 day = Dates007.tib$days.data)
+
+Dates007.tib|>
+  filter(date.data>= "1960-02-01" & date.data <= "1962-09-02")
+
+```
+
+
+\newpage
+
+## Problem #08 - Chapter 42 Exercise #04C 
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+answer<-ggplot002.tib|>
+  arrange(desc(y))
+
+answer<- rbind(head(answer, 10), tail(answer, 10))
+
+answer
+
+```

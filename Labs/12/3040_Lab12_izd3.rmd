@@ -1,0 +1,76 @@
+---
+title: "Lab_12"
+author: "izd3"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("HomeworkObjects.RData")
+```
+
+Use only commands \& functions that are shown in the indicated chapter or prior chapters.
+
+
+\newpage
+
+## Problem #01 - Chapter 43 Exercise #04 
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+library(tidyverse)
+mynew<-columns002.tib|>
+  mutate(
+    snack=var.01*2,
+    dobby=B.68+corn01,
+    zonks=abs(A.12-var.03),
+    jinkies=soup.02
+  )
+
+mynew
+
+
+```
+
+\newpage
+
+## Problem #02 - Chapter 44 Exercise #01A 
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work here
+Joins001.dat
+Joins002.tib
+
+inner_join(x=Joins001.dat,y=Joins002.tib,by=c("LASTNAME","FIRSTNAME"))
+
+```
+
+\newpage
+
+## Problem #03 - Chapter 45 Exercise #01A
+```{r  out.height = 300, fig.height = 8, fig.width = 12}
+# Show your work here
+full_join(x=Joins001.dat,y=Joins002.tib,by=c("LASTNAME","FIRSTNAME"))
+
+```
+
+
+\newpage
+
+## Problem #04 - Chapter 48 Exercise #01
+
+```{r  out.height = 300, fig.height = 8, fig.width = 12}
+# Show your work here
+
+
+
+MyLongTibble<-pivot_longer(data = Wide001.tib,cols = c("type1","type2","type3"),names_to = "TYPE",
+             values_to = "alphabet")
+MyLongTibble
+Long001a.tib
+
+```

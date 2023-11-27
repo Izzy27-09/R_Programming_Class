@@ -1,0 +1,92 @@
+---
+title: "Lab_11"
+author: "izd3"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+load("HomeworkObjects.RData")
+```
+
+Use only commands \& functions that are shown in the indicated chapter or prior chapters.
+
+
+\newpage
+
+## Problem #01 - Chapter 40 Exercise #09 
+
+```{r  out.height = 300, fig.height = 4, fig.width = 6}
+# Show your work here
+library(stringr)
+len.The<-str_subset(sentences,pattern = "The")
+length(len.The)
+length(str_subset(sentences,pattern = "(the)+"))
+length(str_subset(sentences,pattern = "(ed\\.)$"))
+
+
+```
+
+\newpage
+
+## Problem #02 - Chapter 41 Exercise #01AC 
+
+```{r  out.height = 300, fig.height = 6, fig.width = 12}
+# Show your work 
+library(dplyr)
+
+groups001.tib|>
+  group_by(mn)|>
+  summarise(
+    junkmean=mean(junk),
+    junksd=sd(junk)
+  )
+
+groups001.tib|>
+  group_by(mn,stan)|>
+  summarise(
+    junkmean=mean(junk),
+    junksd=sd(junk)
+  )
+
+
+```
+
+\newpage
+
+## Problem #03 - Chapter 42 Exercise #01AB
+```{r  out.height = 300, fig.height = 8, fig.width = 12}
+# Show your work here
+weight.check<-ChickWeight.tib|>
+  filter(
+    weight>300
+  )
+weight.check
+nrow(weight.check)
+
+carb.check<-Formaldehyde.tib|>
+  filter(
+    carb==0.5
+  )
+
+carb.check
+nrow(carb.check)
+
+```
+
+
+\newpage
+
+## Problem #04 - Chapter 43 Exercise #01A
+
+```{r  out.height = 300, fig.height = 8, fig.width = 12}
+# Show your work here
+
+ChickWeight.tib|>
+  select(2)
+
+```

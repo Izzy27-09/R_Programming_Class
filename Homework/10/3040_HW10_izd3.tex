@@ -1,0 +1,2733 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={HW\_10},
+  pdfauthor={izd3},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{HW\_10}
+\author{izd3}
+\date{}
+
+\begin{document}
+\maketitle
+
+\newpage
+
+\hypertarget{problem-01---chapter-38-exercise-01bc}{%
+\subsection{Problem \#01 - Chapter 38 Exercise
+\#01BC}\label{problem-01---chapter-38-exercise-01bc}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\FunctionTok{library}\NormalTok{(lubridate)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'lubridate' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'lubridate'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     date, intersect, setdiff, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Dates001.tib}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 10 x 3
+##    A_Dates                  B_Dates                    C_Dates                  
+##    <chr>                    <chr>                      <chr>                    
+##  1 11       01       1945   01   December   1945       1945     01     Mar      
+##  2 02.21.2020               21 -  March -  2020        2020     .21     .Mar    
+##  3 08-    04-    1917       04       July       1917   1917    /04    /Mar      
+##  4 12.17.1956               17      March      1956    1956       17       Sep  
+##  5 06.   10.   1978         10       August       1978 1978-       10-       Jan
+##  6 11       -23       -1904 23.    December.    1904   1904    /23    /Jul      
+##  7 11 .  22 .  1941         22/   June/   1941         1941    .22    .Jan      
+##  8 11 /14 /1989             14-November-1989           1989 14 Dec              
+##  9 04 / 10 / 1964           10 /  December /  1964     1964 . 10 . Apr          
+## 10 06 - 13 - 2002           13   February   2002       2002       -13       -Jun
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mdy}\NormalTok{(Dates001.tib}\SpecialCharTok{$}\NormalTok{A\_Dates)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "1945-11-01" "2020-02-21" "1917-08-04" "1956-12-17" "1978-06-10"
+##  [6] "1904-11-23" "1941-11-22" "1989-11-14" "1964-04-10" "2002-06-13"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ydm}\NormalTok{(Dates001.tib}\SpecialCharTok{$}\NormalTok{C\_Dates)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "1945-03-01" "2020-03-21" "1917-03-04" "1956-09-17" "1978-01-10"
+##  [6] "1904-07-23" "1941-01-22" "1989-12-14" "1964-04-10" "2002-06-13"
+\end{verbatim}
+
+\newpage
+
+\hypertarget{problem-02---chapter-38-exercise-02abc}{%
+\subsection{Problem \#02 - Chapter 38 Exercise
+\#02ABC}\label{problem-02---chapter-38-exercise-02abc}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\NormalTok{Dates002.tib}\SpecialCharTok{$}\NormalTok{dateData}\OtherTok{=}\FunctionTok{make\_date}\NormalTok{(}\AttributeTok{year =}\NormalTok{ Dates002.tib}\SpecialCharTok{$}\NormalTok{A,}
+                                \AttributeTok{month =}\NormalTok{ Dates002.tib}\SpecialCharTok{$}\NormalTok{B,}
+                                \AttributeTok{day =}\NormalTok{ Dates002.tib}\SpecialCharTok{$}\NormalTok{C)}
+\NormalTok{Dates002.tib}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 10 x 4
+##        A     B C     dateData  
+##    <int> <int> <chr> <date>    
+##  1  1926     6 07    1926-06-07
+##  2  2008     9 05    2008-09-05
+##  3  2012     8 05    2012-08-05
+##  4  1985     6 24    1985-06-24
+##  5  1917     9 18    1917-09-18
+##  6  1990     2 24    1990-02-24
+##  7  1939    11 21    1939-11-21
+##  8  2002     7 27    2002-07-27
+##  9  1997     6 01    1997-06-01
+## 10  2012     8 18    2012-08-18
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Dates003.tib}\SpecialCharTok{$}\NormalTok{dateData}\OtherTok{=}\FunctionTok{make\_date}\NormalTok{(}\AttributeTok{year =}\NormalTok{ Dates003.tib}\SpecialCharTok{$}\NormalTok{B,}
+                                \AttributeTok{month =}\NormalTok{ Dates003.tib}\SpecialCharTok{$}\NormalTok{A,}
+                                \AttributeTok{day =}\NormalTok{ Dates003.tib}\SpecialCharTok{$}\NormalTok{C)}
+\NormalTok{Dates003.tib}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 10 x 4
+##        A     B C     dateData  
+##    <int> <int> <chr> <date>    
+##  1    10  1993 27    1993-10-27
+##  2    10  2007 01    2007-10-01
+##  3     3  1918 03    1918-03-03
+##  4    11  1960 14    1960-11-14
+##  5     2  1995 05    1995-02-05
+##  6     2  1982 25    1982-02-25
+##  7     7  1913 03    1913-07-03
+##  8    10  2008 16    2008-10-16
+##  9     8  2013 28    2013-08-28
+## 10     4  2006 07    2006-04-07
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Dates004.tib}\SpecialCharTok{$}\NormalTok{dateData}\OtherTok{=}\FunctionTok{make\_date}\NormalTok{(}\AttributeTok{year =}\NormalTok{ Dates004.tib}\SpecialCharTok{$}\NormalTok{C,}
+                                \AttributeTok{month =} \FunctionTok{match}\NormalTok{(Dates004.tib}\SpecialCharTok{$}\NormalTok{A,month.abb),}
+                                \AttributeTok{day =}\NormalTok{ Dates004.tib}\SpecialCharTok{$}\NormalTok{B)}
+
+\NormalTok{Dates004.tib}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 10 x 4
+##    A     B         C dateData  
+##    <chr> <chr> <int> <date>    
+##  1 Aug   10     1931 1931-08-10
+##  2 Nov   10     1976 1976-11-10
+##  3 Jan   08     1908 1908-01-08
+##  4 Dec   01     2004 2004-12-01
+##  5 Jan   24     1979 1979-01-24
+##  6 Sep   15     1947 1947-09-15
+##  7 May   13     2023 2023-05-13
+##  8 Sep   03     1921 1921-09-03
+##  9 Nov   02     1915 1915-11-02
+## 10 Sep   12     1920 1920-09-12
+\end{verbatim}
+
+\newpage
+
+\hypertarget{problem-03---chapter-38-exercise-03}{%
+\subsection{Problem \#03 - Chapter 38 Exercise
+\#03}\label{problem-03---chapter-38-exercise-03}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\FunctionTok{library}\NormalTok{(tibble)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tibble' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DATES005.tib }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}
+  \AttributeTok{Dates005 =} \FunctionTok{ymd}\NormalTok{(Dates005),        }
+  \AttributeTok{YEAR =} \FunctionTok{year}\NormalTok{(}\FunctionTok{ymd}\NormalTok{(Dates005)),}
+  \AttributeTok{MONTH =} \FunctionTok{month}\NormalTok{(}\FunctionTok{ymd}\NormalTok{(Dates005)),}
+  \AttributeTok{DAY =} \FunctionTok{day}\NormalTok{(}\FunctionTok{ymd}\NormalTok{(Dates005)),}
+  \StringTok{\textasciigrave{}}\AttributeTok{FULL NAMED DAY}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{weekdays}\NormalTok{(}\FunctionTok{ymd}\NormalTok{(Dates005))}
+\NormalTok{)}
+\NormalTok{DATES005.tib}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 10 x 5
+##    Dates005    YEAR MONTH   DAY `FULL NAMED DAY`
+##    <date>     <dbl> <dbl> <int> <chr>           
+##  1 2023-05-28  2023     5    28 Sunday          
+##  2 1928-09-18  1928     9    18 Tuesday         
+##  3 1938-03-01  1938     3     1 Tuesday         
+##  4 1968-03-26  1968     3    26 Tuesday         
+##  5 1969-09-14  1969     9    14 Sunday          
+##  6 1910-01-14  1910     1    14 Friday          
+##  7 1908-06-18  1908     6    18 Thursday        
+##  8 1962-03-28  1962     3    28 Wednesday       
+##  9 1949-09-21  1949     9    21 Wednesday       
+## 10 1953-09-02  1953     9     2 Wednesday
+\end{verbatim}
+
+\newpage
+
+\hypertarget{problem-04---chapter-38-exercise-04c-next-to-5c}{%
+\subsection{Problem \#04 - Chapter 38 Exercise \#04C next to
+\#5C}\label{problem-04---chapter-38-exercise-04c-next-to-5c}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'ggplot2' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Dates007.tib}\SpecialCharTok{$}\NormalTok{dateData}\OtherTok{=}\FunctionTok{make\_date}\NormalTok{(}\AttributeTok{year =}\NormalTok{ Dates007.tib}\SpecialCharTok{$}\NormalTok{years.data,}
+                                \AttributeTok{month =} \FunctionTok{match}\NormalTok{(Dates007.tib}\SpecialCharTok{$}\NormalTok{months.data,month.abb),}
+                                \AttributeTok{day =}\NormalTok{ Dates007.tib}\SpecialCharTok{$}\NormalTok{days.data)}
+
+\NormalTok{Dates007.tib}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{dateData,}\AttributeTok{y=}\NormalTok{Ill,}\AttributeTok{size=}\NormalTok{back,}\AttributeTok{color=}\NormalTok{be))}\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{()}\SpecialCharTok{+}
+  \FunctionTok{scale\_x\_date}\NormalTok{(}\AttributeTok{breaks =} \FunctionTok{make\_date}\NormalTok{(}\AttributeTok{year=}\FunctionTok{c}\NormalTok{(}\DecValTok{1900}\NormalTok{,}\DecValTok{1950}\NormalTok{,}\DecValTok{2000}\NormalTok{)),}\AttributeTok{date\_labels =} \StringTok{\textquotesingle{}\%Y\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Using size for a discrete variable is not advised.
+\end{verbatim}
+
+\includegraphics[height=400]{3040_HW10_izd3_files/figure-latex/unnamed-chunk-4-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Dates007.tib}\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{be,}\AttributeTok{y=}\NormalTok{dateData,}\AttributeTok{color=}\NormalTok{Ill,}\AttributeTok{shape=}\NormalTok{back))}\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{()}\SpecialCharTok{+}
+  \FunctionTok{scale\_color\_gradient}\NormalTok{(}\AttributeTok{name=}\StringTok{"I}\SpecialCharTok{\textbackslash{}\textquotesingle{}}\StringTok{LL"}\NormalTok{,}\AttributeTok{low =}\StringTok{"black"}\NormalTok{,}\AttributeTok{high =} \StringTok{"red"}\NormalTok{ )}\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_date}\NormalTok{(}\AttributeTok{name =} \StringTok{"DATEDATA"}\NormalTok{,}
+               \AttributeTok{breaks =}\FunctionTok{make\_date}\NormalTok{(}\AttributeTok{year=}\FunctionTok{c}\NormalTok{(}\DecValTok{1900}\NormalTok{,}\DecValTok{1925}\NormalTok{,}\DecValTok{1950}\NormalTok{,}\DecValTok{1975}\NormalTok{,}\DecValTok{2000}\NormalTok{,}\DecValTok{2025}\NormalTok{)),}
+               \AttributeTok{date\_labels =} \StringTok{\textquotesingle{}\%Y\textquotesingle{}}\NormalTok{ )}\SpecialCharTok{+}
+  \FunctionTok{scale\_shape\_manual}\NormalTok{(}\AttributeTok{name=}\StringTok{\textquotesingle{}BACK!\textquotesingle{}}\NormalTok{,}\AttributeTok{breaks =} \FunctionTok{c}\NormalTok{(}\StringTok{"T{-}1000"}\NormalTok{,}\StringTok{"T{-}800"}\NormalTok{),}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\DecValTok{6}\NormalTok{,}\DecValTok{17}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[height=400]{3040_HW10_izd3_files/figure-latex/unnamed-chunk-4-2}
+
+\newpage
+
+\hypertarget{problem-05---chapter-39-exercise-05abc}{%
+\subsection{Problem \#05 - Chapter 39 Exercise
+\#05ABC}\label{problem-05---chapter-39-exercise-05abc}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\FunctionTok{library}\NormalTok{(stringr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'stringr' was built under R version 4.2.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str\_locate}\NormalTok{(sentences,}\AttributeTok{pattern =} \StringTok{"the"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        start end
+##   [1,]    25  27
+##   [2,]     6   8
+##   [3,]    19  21
+##   [4,]    NA  NA
+##   [5,]    NA  NA
+##   [6,]    NA  NA
+##   [7,]    27  29
+##   [8,]    NA  NA
+##   [9,]    NA  NA
+##  [10,]    NA  NA
+##  [11,]    13  15
+##  [12,]    NA  NA
+##  [13,]    15  17
+##  [14,]     6   8
+##  [15,]     6   8
+##  [16,]    28  30
+##  [17,]    NA  NA
+##  [18,]    24  26
+##  [19,]    34  36
+##  [20,]    13  15
+##  [21,]    32  34
+##  [22,]    32  34
+##  [23,]     7   9
+##  [24,]    NA  NA
+##  [25,]    15  17
+##  [26,]    23  25
+##  [27,]    NA  NA
+##  [28,]    27  29
+##  [29,]    31  33
+##  [30,]    NA  NA
+##  [31,]     7   9
+##  [32,]     6   8
+##  [33,]    14  16
+##  [34,]     6   8
+##  [35,]     6   8
+##  [36,]    NA  NA
+##  [37,]    NA  NA
+##  [38,]    NA  NA
+##  [39,]    28  30
+##  [40,]    10  12
+##  [41,]    14  16
+##  [42,]    28  30
+##  [43,]    24  26
+##  [44,]    28  30
+##  [45,]    21  23
+##  [46,]     6   8
+##  [47,]    20  22
+##  [48,]    10  12
+##  [49,]    24  26
+##  [50,]    NA  NA
+##  [51,]    31  33
+##  [52,]    33  35
+##  [53,]    NA  NA
+##  [54,]    26  28
+##  [55,]    NA  NA
+##  [56,]    NA  NA
+##  [57,]     7   9
+##  [58,]    NA  NA
+##  [59,]    23  25
+##  [60,]    11  13
+##  [61,]    14  16
+##  [62,]    23  25
+##  [63,]    20  22
+##  [64,]    26  28
+##  [65,]    26  28
+##  [66,]    NA  NA
+##  [67,]    22  24
+##  [68,]    37  39
+##  [69,]    20  22
+##  [70,]    18  20
+##  [71,]    21  23
+##  [72,]    30  32
+##  [73,]    24  26
+##  [74,]    NA  NA
+##  [75,]    NA  NA
+##  [76,]    NA  NA
+##  [77,]    13  15
+##  [78,]    NA  NA
+##  [79,]    NA  NA
+##  [80,]    NA  NA
+##  [81,]    19  21
+##  [82,]     5   7
+##  [83,]    NA  NA
+##  [84,]    NA  NA
+##  [85,]    NA  NA
+##  [86,]    25  27
+##  [87,]     5   7
+##  [88,]    NA  NA
+##  [89,]    14  16
+##  [90,]    NA  NA
+##  [91,]    26  28
+##  [92,]    25  27
+##  [93,]    NA  NA
+##  [94,]    27  29
+##  [95,]    NA  NA
+##  [96,]     6   8
+##  [97,]    NA  NA
+##  [98,]    NA  NA
+##  [99,]    NA  NA
+## [100,]    NA  NA
+## [101,]    NA  NA
+## [102,]    25  27
+## [103,]    NA  NA
+## [104,]     6   8
+## [105,]     5   7
+## [106,]    NA  NA
+## [107,]    NA  NA
+## [108,]     8  10
+## [109,]    23  25
+## [110,]     6   8
+## [111,]    13  15
+## [112,]    33  35
+## [113,]    24  26
+## [114,]     7   9
+## [115,]    17  19
+## [116,]    NA  NA
+## [117,]     7   9
+## [118,]    34  36
+## [119,]    NA  NA
+## [120,]    16  18
+## [121,]    NA  NA
+## [122,]    21  23
+## [123,]    14  16
+## [124,]    NA  NA
+## [125,]    19  21
+## [126,]    NA  NA
+## [127,]    NA  NA
+## [128,]    28  30
+## [129,]     6   8
+## [130,]    NA  NA
+## [131,]    NA  NA
+## [132,]     9  11
+## [133,]     7   9
+## [134,]    NA  NA
+## [135,]    22  24
+## [136,]    24  26
+## [137,]    22  24
+## [138,]     4   6
+## [139,]    NA  NA
+## [140,]    NA  NA
+## [141,]    22  24
+## [142,]     7   9
+## [143,]    NA  NA
+## [144,]    20  22
+## [145,]    NA  NA
+## [146,]    NA  NA
+## [147,]    NA  NA
+## [148,]    13  15
+## [149,]    22  24
+## [150,]    28  30
+## [151,]    26  28
+## [152,]    NA  NA
+## [153,]    NA  NA
+## [154,]    34  36
+## [155,]    NA  NA
+## [156,]    NA  NA
+## [157,]    20  22
+## [158,]    21  23
+## [159,]    11  13
+## [160,]    NA  NA
+## [161,]    20  22
+## [162,]    20  22
+## [163,]     6   8
+## [164,]    NA  NA
+## [165,]    30  32
+## [166,]    NA  NA
+## [167,]    NA  NA
+## [168,]     9  11
+## [169,]    NA  NA
+## [170,]    28  30
+## [171,]    19  21
+## [172,]    23  25
+## [173,]    NA  NA
+## [174,]    NA  NA
+## [175,]    22  24
+## [176,]    11  13
+## [177,]    27  29
+## [178,]    NA  NA
+## [179,]    20  22
+## [180,]     5   7
+## [181,]    NA  NA
+## [182,]    NA  NA
+## [183,]    NA  NA
+## [184,]    34  36
+## [185,]    NA  NA
+## [186,]     5   7
+## [187,]    NA  NA
+## [188,]     7   9
+## [189,]    23  25
+## [190,]    35  37
+## [191,]    NA  NA
+## [192,]    NA  NA
+## [193,]    12  14
+## [194,]    NA  NA
+## [195,]    NA  NA
+## [196,]    22  24
+## [197,]    22  24
+## [198,]    28  30
+## [199,]    27  29
+## [200,]    27  29
+## [201,]    32  34
+## [202,]    NA  NA
+## [203,]     7   9
+## [204,]    NA  NA
+## [205,]    NA  NA
+## [206,]    17  19
+## [207,]     7   9
+## [208,]    20  22
+## [209,]    25  27
+## [210,]     6   8
+## [211,]    NA  NA
+## [212,]    13  15
+## [213,]    28  30
+## [214,]    NA  NA
+## [215,]    NA  NA
+## [216,]    NA  NA
+## [217,]    NA  NA
+## [218,]    NA  NA
+## [219,]    NA  NA
+## [220,]    23  25
+## [221,]    NA  NA
+## [222,]    NA  NA
+## [223,]    NA  NA
+## [224,]    NA  NA
+## [225,]    11  13
+## [226,]    NA  NA
+## [227,]    NA  NA
+## [228,]    NA  NA
+## [229,]     6   8
+## [230,]     7   9
+## [231,]    13  15
+## [232,]    32  34
+## [233,]    NA  NA
+## [234,]    17  19
+## [235,]    NA  NA
+## [236,]    NA  NA
+## [237,]    NA  NA
+## [238,]     6   8
+## [239,]    NA  NA
+## [240,]    16  18
+## [241,]     4   6
+## [242,]    NA  NA
+## [243,]    16  18
+## [244,]    25  27
+## [245,]    NA  NA
+## [246,]    NA  NA
+## [247,]    NA  NA
+## [248,]    NA  NA
+## [249,]    NA  NA
+## [250,]     6   8
+## [251,]    18  20
+## [252,]    23  25
+## [253,]     9  11
+## [254,]    18  20
+## [255,]    NA  NA
+## [256,]    NA  NA
+## [257,]    NA  NA
+## [258,]    NA  NA
+## [259,]    32  34
+## [260,]    NA  NA
+## [261,]    22  24
+## [262,]     7   9
+## [263,]    31  33
+## [264,]    NA  NA
+## [265,]    NA  NA
+## [266,]    23  25
+## [267,]    NA  NA
+## [268,]    17  19
+## [269,]    NA  NA
+## [270,]    19  21
+## [271,]    26  28
+## [272,]     6   8
+## [273,]     5   7
+## [274,]    20  22
+## [275,]     9  11
+## [276,]    28  30
+## [277,]    28  30
+## [278,]    NA  NA
+## [279,]    NA  NA
+## [280,]     6   8
+## [281,]    NA  NA
+## [282,]    25  27
+## [283,]    28  30
+## [284,]    NA  NA
+## [285,]    10  12
+## [286,]     7   9
+## [287,]    NA  NA
+## [288,]    NA  NA
+## [289,]    21  23
+## [290,]    NA  NA
+## [291,]    18  20
+## [292,]    NA  NA
+## [293,]    NA  NA
+## [294,]     7   9
+## [295,]    13  15
+## [296,]    NA  NA
+## [297,]    NA  NA
+## [298,]    NA  NA
+## [299,]    NA  NA
+## [300,]    NA  NA
+## [301,]     7   9
+## [302,]    35  37
+## [303,]    26  28
+## [304,]    26  28
+## [305,]    NA  NA
+## [306,]    24  26
+## [307,]    23  25
+## [308,]    27  29
+## [309,]    NA  NA
+## [310,]    NA  NA
+## [311,]    NA  NA
+## [312,]    33  35
+## [313,]    NA  NA
+## [314,]    NA  NA
+## [315,]    25  27
+## [316,]    15  17
+## [317,]     7   9
+## [318,]    NA  NA
+## [319,]    NA  NA
+## [320,]    NA  NA
+## [321,]     6   8
+## [322,]    NA  NA
+## [323,]    NA  NA
+## [324,]     6   8
+## [325,]    23  25
+## [326,]    26  28
+## [327,]    NA  NA
+## [328,]    32  34
+## [329,]    NA  NA
+## [330,]     3   5
+## [331,]    NA  NA
+## [332,]    NA  NA
+## [333,]    NA  NA
+## [334,]    19  21
+## [335,]    NA  NA
+## [336,]    14  16
+## [337,]    30  32
+## [338,]    20  22
+## [339,]    10  12
+## [340,]    NA  NA
+## [341,]     9  11
+## [342,]     9  11
+## [343,]    20  22
+## [344,]    NA  NA
+## [345,]    12  14
+## [346,]    NA  NA
+## [347,]    NA  NA
+## [348,]    21  23
+## [349,]     6   8
+## [350,]    NA  NA
+## [351,]     6   8
+## [352,]    NA  NA
+## [353,]    17  19
+## [354,]    33  35
+## [355,]    32  34
+## [356,]    NA  NA
+## [357,]    NA  NA
+## [358,]    NA  NA
+## [359,]    25  27
+## [360,]    NA  NA
+## [361,]     6   8
+## [362,]    31  33
+## [363,]     9  11
+## [364,]    31  33
+## [365,]    10  12
+## [366,]    NA  NA
+## [367,]    NA  NA
+## [368,]    22  24
+## [369,]    28  30
+## [370,]     6   8
+## [371,]    34  36
+## [372,]     6   8
+## [373,]    NA  NA
+## [374,]    NA  NA
+## [375,]    NA  NA
+## [376,]    NA  NA
+## [377,]    NA  NA
+## [378,]    NA  NA
+## [379,]    NA  NA
+## [380,]    17  19
+## [381,]    NA  NA
+## [382,]    20  22
+## [383,]    NA  NA
+## [384,]    NA  NA
+## [385,]    NA  NA
+## [386,]    13  15
+## [387,]    NA  NA
+## [388,]     7   9
+## [389,]     9  11
+## [390,]    26  28
+## [391,]     7   9
+## [392,]     5   7
+## [393,]    NA  NA
+## [394,]    16  18
+## [395,]    NA  NA
+## [396,]    22  24
+## [397,]    28  30
+## [398,]    NA  NA
+## [399,]     7   9
+## [400,]    NA  NA
+## [401,]    NA  NA
+## [402,]    21  23
+## [403,]    NA  NA
+## [404,]    NA  NA
+## [405,]    34  36
+## [406,]    NA  NA
+## [407,]    19  21
+## [408,]    NA  NA
+## [409,]    NA  NA
+## [410,]    NA  NA
+## [411,]    NA  NA
+## [412,]    NA  NA
+## [413,]    22  24
+## [414,]    12  14
+## [415,]    NA  NA
+## [416,]    NA  NA
+## [417,]    10  12
+## [418,]    22  24
+## [419,]    14  16
+## [420,]    NA  NA
+## [421,]    25  27
+## [422,]     6   8
+## [423,]    NA  NA
+## [424,]    23  25
+## [425,]    NA  NA
+## [426,]    20  22
+## [427,]     6   8
+## [428,]    NA  NA
+## [429,]    NA  NA
+## [430,]     8  10
+## [431,]    33  35
+## [432,]    22  24
+## [433,]    14  16
+## [434,]    NA  NA
+## [435,]    16  18
+## [436,]     7   9
+## [437,]    13  15
+## [438,]    NA  NA
+## [439,]    NA  NA
+## [440,]    NA  NA
+## [441,]    12  14
+## [442,]    14  16
+## [443,]    27  29
+## [444,]    NA  NA
+## [445,]    NA  NA
+## [446,]    19  21
+## [447,]    12  14
+## [448,]     6   8
+## [449,]    NA  NA
+## [450,]    11  13
+## [451,]    NA  NA
+## [452,]    NA  NA
+## [453,]    14  16
+## [454,]    NA  NA
+## [455,]     8  10
+## [456,]    10  12
+## [457,]    28  30
+## [458,]    35  37
+## [459,]    NA  NA
+## [460,]    NA  NA
+## [461,]    27  29
+## [462,]    NA  NA
+## [463,]    NA  NA
+## [464,]     9  11
+## [465,]    14  16
+## [466,]    19  21
+## [467,]    NA  NA
+## [468,]    31  33
+## [469,]    23  25
+## [470,]    NA  NA
+## [471,]    25  27
+## [472,]    NA  NA
+## [473,]    NA  NA
+## [474,]    NA  NA
+## [475,]    26  28
+## [476,]    33  35
+## [477,]    NA  NA
+## [478,]    NA  NA
+## [479,]    NA  NA
+## [480,]    22  24
+## [481,]    NA  NA
+## [482,]     6   8
+## [483,]    NA  NA
+## [484,]     7   9
+## [485,]    21  23
+## [486,]     6   8
+## [487,]    30  32
+## [488,]    NA  NA
+## [489,]    NA  NA
+## [490,]     4   6
+## [491,]    32  34
+## [492,]    NA  NA
+## [493,]    NA  NA
+## [494,]    NA  NA
+## [495,]    27  29
+## [496,]     6   8
+## [497,]    34  36
+## [498,]    25  27
+## [499,]    13  15
+## [500,]    NA  NA
+## [501,]     7   9
+## [502,]    NA  NA
+## [503,]    NA  NA
+## [504,]    26  28
+## [505,]    18  20
+## [506,]    NA  NA
+## [507,]    NA  NA
+## [508,]    NA  NA
+## [509,]    NA  NA
+## [510,]    13  15
+## [511,]    18  20
+## [512,]    NA  NA
+## [513,]    NA  NA
+## [514,]    24  26
+## [515,]    NA  NA
+## [516,]    NA  NA
+## [517,]    NA  NA
+## [518,]    NA  NA
+## [519,]    NA  NA
+## [520,]    22  24
+## [521,]     7   9
+## [522,]    NA  NA
+## [523,]    27  29
+## [524,]    33  35
+## [525,]     5   7
+## [526,]    NA  NA
+## [527,]    31  33
+## [528,]    NA  NA
+## [529,]    NA  NA
+## [530,]    NA  NA
+## [531,]     8  10
+## [532,]    NA  NA
+## [533,]    NA  NA
+## [534,]    12  14
+## [535,]    NA  NA
+## [536,]    10  12
+## [537,]    NA  NA
+## [538,]     7   9
+## [539,]    NA  NA
+## [540,]    NA  NA
+## [541,]    NA  NA
+## [542,]    29  31
+## [543,]    NA  NA
+## [544,]    19  21
+## [545,]     3   5
+## [546,]    NA  NA
+## [547,]    NA  NA
+## [548,]    10  12
+## [549,]    16  18
+## [550,]    41  43
+## [551,]    NA  NA
+## [552,]    NA  NA
+## [553,]    NA  NA
+## [554,]    16  18
+## [555,]     5   7
+## [556,]    28  30
+## [557,]    12  14
+## [558,]    NA  NA
+## [559,]    NA  NA
+## [560,]    12  14
+## [561,]     7   9
+## [562,]    24  26
+## [563,]    NA  NA
+## [564,]     9  11
+## [565,]    13  15
+## [566,]    34  36
+## [567,]    19  21
+## [568,]    NA  NA
+## [569,]    13  15
+## [570,]     6   8
+## [571,]    NA  NA
+## [572,]    21  23
+## [573,]    NA  NA
+## [574,]    15  17
+## [575,]    30  32
+## [576,]    20  22
+## [577,]    24  26
+## [578,]    NA  NA
+## [579,]     6   8
+## [580,]    16  18
+## [581,]    NA  NA
+## [582,]    32  34
+## [583,]    11  13
+## [584,]     7   9
+## [585,]     6   8
+## [586,]     7   9
+## [587,]    NA  NA
+## [588,]     7   9
+## [589,]     6   8
+## [590,]    NA  NA
+## [591,]    26  28
+## [592,]     6   8
+## [593,]     7   9
+## [594,]    NA  NA
+## [595,]    NA  NA
+## [596,]     5   7
+## [597,]    NA  NA
+## [598,]    NA  NA
+## [599,]     5   7
+## [600,]    16  18
+## [601,]    NA  NA
+## [602,]    21  23
+## [603,]    NA  NA
+## [604,]    15  17
+## [605,]     7   9
+## [606,]     6   8
+## [607,]    NA  NA
+## [608,]    25  27
+## [609,]    NA  NA
+## [610,]    20  22
+## [611,]    16  18
+## [612,]    15  17
+## [613,]    NA  NA
+## [614,]     8  10
+## [615,]    NA  NA
+## [616,]    NA  NA
+## [617,]    21  23
+## [618,]    NA  NA
+## [619,]     7   9
+## [620,]    14  16
+## [621,]    37  39
+## [622,]    13  15
+## [623,]    25  27
+## [624,]    NA  NA
+## [625,]    35  37
+## [626,]    13  15
+## [627,]     6   8
+## [628,]    12  14
+## [629,]    NA  NA
+## [630,]    NA  NA
+## [631,]    24  26
+## [632,]    NA  NA
+## [633,]    28  30
+## [634,]    20  22
+## [635,]    32  34
+## [636,]     6   8
+## [637,]    31  33
+## [638,]    NA  NA
+## [639,]    NA  NA
+## [640,]    NA  NA
+## [641,]    NA  NA
+## [642,]    NA  NA
+## [643,]    11  13
+## [644,]    12  14
+## [645,]    NA  NA
+## [646,]    28  30
+## [647,]    19  21
+## [648,]     6   8
+## [649,]    NA  NA
+## [650,]    NA  NA
+## [651,]    29  31
+## [652,]    NA  NA
+## [653,]    NA  NA
+## [654,]    15  17
+## [655,]    12  14
+## [656,]    NA  NA
+## [657,]    NA  NA
+## [658,]     8  10
+## [659,]    NA  NA
+## [660,]     6   8
+## [661,]    NA  NA
+## [662,]     5   7
+## [663,]    21  23
+## [664,]    36  38
+## [665,]    31  33
+## [666,]    24  26
+## [667,]    19  21
+## [668,]    NA  NA
+## [669,]    NA  NA
+## [670,]    NA  NA
+## [671,]    24  26
+## [672,]     5   7
+## [673,]    NA  NA
+## [674,]    26  28
+## [675,]     5   7
+## [676,]     7   9
+## [677,]    21  23
+## [678,]    NA  NA
+## [679,]    16  18
+## [680,]    13  15
+## [681,]    NA  NA
+## [682,]    NA  NA
+## [683,]    19  21
+## [684,]    30  32
+## [685,]    NA  NA
+## [686,]    21  23
+## [687,]    NA  NA
+## [688,]    22  24
+## [689,]    NA  NA
+## [690,]    NA  NA
+## [691,]    29  31
+## [692,]    23  25
+## [693,]    19  21
+## [694,]     6   8
+## [695,]    20  22
+## [696,]    NA  NA
+## [697,]    24  26
+## [698,]    19  21
+## [699,]    NA  NA
+## [700,]    16  18
+## [701,]    19  21
+## [702,]    12  14
+## [703,]     5   7
+## [704,]    NA  NA
+## [705,]    27  29
+## [706,]    22  24
+## [707,]    33  35
+## [708,]     9  11
+## [709,]    NA  NA
+## [710,]    NA  NA
+## [711,]    NA  NA
+## [712,]    NA  NA
+## [713,]    18  20
+## [714,]    27  29
+## [715,]    NA  NA
+## [716,]    NA  NA
+## [717,]    NA  NA
+## [718,]    26  28
+## [719,]    NA  NA
+## [720,]    15  17
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str\_locate}\NormalTok{(sentences,}\AttributeTok{pattern =} \StringTok{"to"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        start end
+##   [1,]    NA  NA
+##   [2,]    16  17
+##   [3,]    11  12
+##   [4,]    NA  NA
+##   [5,]    NA  NA
+##   [6,]    NA  NA
+##   [7,]    NA  NA
+##   [8,]    NA  NA
+##   [9,]    NA  NA
+##  [10,]    18  19
+##  [11,]    NA  NA
+##  [12,]    15  16
+##  [13,]    NA  NA
+##  [14,]    NA  NA
+##  [15,]    25  26
+##  [16,]    20  21
+##  [17,]    NA  NA
+##  [18,]    NA  NA
+##  [19,]    NA  NA
+##  [20,]    NA  NA
+##  [21,]    NA  NA
+##  [22,]    NA  NA
+##  [23,]    30  31
+##  [24,]    NA  NA
+##  [25,]    NA  NA
+##  [26,]    NA  NA
+##  [27,]    NA  NA
+##  [28,]    NA  NA
+##  [29,]    NA  NA
+##  [30,]    NA  NA
+##  [31,]    16  17
+##  [32,]    23  24
+##  [33,]    NA  NA
+##  [34,]    NA  NA
+##  [35,]    NA  NA
+##  [36,]    NA  NA
+##  [37,]    26  27
+##  [38,]    NA  NA
+##  [39,]    NA  NA
+##  [40,]    NA  NA
+##  [41,]    NA  NA
+##  [42,]    14  15
+##  [43,]    NA  NA
+##  [44,]    NA  NA
+##  [45,]    NA  NA
+##  [46,]    18  19
+##  [47,]    NA  NA
+##  [48,]    NA  NA
+##  [49,]    34  35
+##  [50,]    NA  NA
+##  [51,]    NA  NA
+##  [52,]    25  26
+##  [53,]    19  20
+##  [54,]    NA  NA
+##  [55,]    12  13
+##  [56,]    NA  NA
+##  [57,]    NA  NA
+##  [58,]    NA  NA
+##  [59,]    NA  NA
+##  [60,]    38  39
+##  [61,]    NA  NA
+##  [62,]    14  15
+##  [63,]    17  18
+##  [64,]    18  19
+##  [65,]    NA  NA
+##  [66,]    NA  NA
+##  [67,]    NA  NA
+##  [68,]    NA  NA
+##  [69,]    NA  NA
+##  [70,]    36  37
+##  [71,]    33  34
+##  [72,]    NA  NA
+##  [73,]    NA  NA
+##  [74,]    12  13
+##  [75,]    NA  NA
+##  [76,]    NA  NA
+##  [77,]    NA  NA
+##  [78,]    NA  NA
+##  [79,]    NA  NA
+##  [80,]    NA  NA
+##  [81,]    NA  NA
+##  [82,]    NA  NA
+##  [83,]    28  29
+##  [84,]    27  28
+##  [85,]    18  19
+##  [86,]    NA  NA
+##  [87,]    15  16
+##  [88,]    NA  NA
+##  [89,]    NA  NA
+##  [90,]    NA  NA
+##  [91,]    NA  NA
+##  [92,]    NA  NA
+##  [93,]    NA  NA
+##  [94,]    NA  NA
+##  [95,]    NA  NA
+##  [96,]    15  16
+##  [97,]    NA  NA
+##  [98,]    16  17
+##  [99,]    NA  NA
+## [100,]    NA  NA
+## [101,]    NA  NA
+## [102,]    NA  NA
+## [103,]    16  17
+## [104,]    NA  NA
+## [105,]    13  14
+## [106,]    NA  NA
+## [107,]    NA  NA
+## [108,]    NA  NA
+## [109,]    NA  NA
+## [110,]    NA  NA
+## [111,]    NA  NA
+## [112,]    NA  NA
+## [113,]    NA  NA
+## [114,]    NA  NA
+## [115,]    NA  NA
+## [116,]    NA  NA
+## [117,]    NA  NA
+## [118,]    NA  NA
+## [119,]    NA  NA
+## [120,]    NA  NA
+## [121,]    NA  NA
+## [122,]    NA  NA
+## [123,]    NA  NA
+## [124,]    NA  NA
+## [125,]    NA  NA
+## [126,]    NA  NA
+## [127,]    NA  NA
+## [128,]    NA  NA
+## [129,]    NA  NA
+## [130,]    15  16
+## [131,]    NA  NA
+## [132,]    NA  NA
+## [133,]    NA  NA
+## [134,]    NA  NA
+## [135,]    NA  NA
+## [136,]    21  22
+## [137,]    19  20
+## [138,]    30  31
+## [139,]    NA  NA
+## [140,]    NA  NA
+## [141,]    NA  NA
+## [142,]    NA  NA
+## [143,]    NA  NA
+## [144,]    NA  NA
+## [145,]    NA  NA
+## [146,]    NA  NA
+## [147,]    10  11
+## [148,]    NA  NA
+## [149,]    NA  NA
+## [150,]    37  38
+## [151,]    18  19
+## [152,]    NA  NA
+## [153,]    NA  NA
+## [154,]    21  22
+## [155,]    10  11
+## [156,]    NA  NA
+## [157,]    NA  NA
+## [158,]    10  11
+## [159,]    15  16
+## [160,]    NA  NA
+## [161,]    NA  NA
+## [162,]    NA  NA
+## [163,]    NA  NA
+## [164,]    27  28
+## [165,]    NA  NA
+## [166,]    25  26
+## [167,]    NA  NA
+## [168,]    NA  NA
+## [169,]    NA  NA
+## [170,]    NA  NA
+## [171,]    NA  NA
+## [172,]    NA  NA
+## [173,]    NA  NA
+## [174,]    NA  NA
+## [175,]    27  28
+## [176,]    NA  NA
+## [177,]     8   9
+## [178,]    24  25
+## [179,]    NA  NA
+## [180,]    10  11
+## [181,]    NA  NA
+## [182,]    27  28
+## [183,]    32  33
+## [184,]    NA  NA
+## [185,]    NA  NA
+## [186,]    NA  NA
+## [187,]    NA  NA
+## [188,]    NA  NA
+## [189,]    NA  NA
+## [190,]    NA  NA
+## [191,]    NA  NA
+## [192,]    23  24
+## [193,]    NA  NA
+## [194,]    NA  NA
+## [195,]    16  17
+## [196,]     5   6
+## [197,]    NA  NA
+## [198,]    25  26
+## [199,]    NA  NA
+## [200,]    17  18
+## [201,]    29  30
+## [202,]    18  19
+## [203,]    19  20
+## [204,]    NA  NA
+## [205,]    NA  NA
+## [206,]    NA  NA
+## [207,]    NA  NA
+## [208,]    33  34
+## [209,]    NA  NA
+## [210,]    NA  NA
+## [211,]    NA  NA
+## [212,]    38  39
+## [213,]    NA  NA
+## [214,]    NA  NA
+## [215,]    NA  NA
+## [216,]    NA  NA
+## [217,]    12  13
+## [218,]    NA  NA
+## [219,]    NA  NA
+## [220,]    NA  NA
+## [221,]    NA  NA
+## [222,]    19  20
+## [223,]    NA  NA
+## [224,]    NA  NA
+## [225,]     6   7
+## [226,]    NA  NA
+## [227,]    NA  NA
+## [228,]    NA  NA
+## [229,]    NA  NA
+## [230,]    24  25
+## [231,]     5   6
+## [232,]    NA  NA
+## [233,]    NA  NA
+## [234,]    26  27
+## [235,]    NA  NA
+## [236,]    NA  NA
+## [237,]    16  17
+## [238,]    NA  NA
+## [239,]    NA  NA
+## [240,]    NA  NA
+## [241,]    NA  NA
+## [242,]    NA  NA
+## [243,]    26  27
+## [244,]    NA  NA
+## [245,]    NA  NA
+## [246,]    NA  NA
+## [247,]    NA  NA
+## [248,]    NA  NA
+## [249,]    NA  NA
+## [250,]    NA  NA
+## [251,]    NA  NA
+## [252,]    NA  NA
+## [253,]    NA  NA
+## [254,]    NA  NA
+## [255,]    NA  NA
+## [256,]    NA  NA
+## [257,]    NA  NA
+## [258,]    NA  NA
+## [259,]    NA  NA
+## [260,]    NA  NA
+## [261,]    NA  NA
+## [262,]    16  17
+## [263,]    28  29
+## [264,]    NA  NA
+## [265,]    NA  NA
+## [266,]    NA  NA
+## [267,]    NA  NA
+## [268,]    NA  NA
+## [269,]    NA  NA
+## [270,]    NA  NA
+## [271,]    NA  NA
+## [272,]    20  21
+## [273,]    NA  NA
+## [274,]    NA  NA
+## [275,]    20  21
+## [276,]    NA  NA
+## [277,]    21  22
+## [278,]    NA  NA
+## [279,]    36  37
+## [280,]    NA  NA
+## [281,]    NA  NA
+## [282,]     7   8
+## [283,]    NA  NA
+## [284,]    NA  NA
+## [285,]    NA  NA
+## [286,]    25  26
+## [287,]    NA  NA
+## [288,]    NA  NA
+## [289,]    NA  NA
+## [290,]    NA  NA
+## [291,]    27  28
+## [292,]    NA  NA
+## [293,]    NA  NA
+## [294,]    NA  NA
+## [295,]    NA  NA
+## [296,]    NA  NA
+## [297,]    24  25
+## [298,]    32  33
+## [299,]    NA  NA
+## [300,]    27  28
+## [301,]    17  18
+## [302,]    NA  NA
+## [303,]    NA  NA
+## [304,]    NA  NA
+## [305,]    NA  NA
+## [306,]    NA  NA
+## [307,]    NA  NA
+## [308,]    NA  NA
+## [309,]    NA  NA
+## [310,]    NA  NA
+## [311,]     6   7
+## [312,]    22  23
+## [313,]    10  11
+## [314,]    NA  NA
+## [315,]    NA  NA
+## [316,]    NA  NA
+## [317,]    NA  NA
+## [318,]    NA  NA
+## [319,]    NA  NA
+## [320,]    NA  NA
+## [321,]    NA  NA
+## [322,]    NA  NA
+## [323,]    15  16
+## [324,]    NA  NA
+## [325,]    NA  NA
+## [326,]    NA  NA
+## [327,]    NA  NA
+## [328,]    NA  NA
+## [329,]    NA  NA
+## [330,]    NA  NA
+## [331,]    24  25
+## [332,]    NA  NA
+## [333,]    13  14
+## [334,]    NA  NA
+## [335,]    NA  NA
+## [336,]     5   6
+## [337,]    NA  NA
+## [338,]    40  41
+## [339,]    31  32
+## [340,]    NA  NA
+## [341,]    33  34
+## [342,]    19  20
+## [343,]    13  14
+## [344,]    28  29
+## [345,]    NA  NA
+## [346,]    NA  NA
+## [347,]    32  33
+## [348,]    NA  NA
+## [349,]    26  27
+## [350,]    NA  NA
+## [351,]    30  31
+## [352,]    NA  NA
+## [353,]    14  15
+## [354,]    NA  NA
+## [355,]    29  30
+## [356,]    NA  NA
+## [357,]    NA  NA
+## [358,]    NA  NA
+## [359,]    NA  NA
+## [360,]    22  23
+## [361,]    NA  NA
+## [362,]    NA  NA
+## [363,]     4   5
+## [364,]    NA  NA
+## [365,]     7   8
+## [366,]    NA  NA
+## [367,]    NA  NA
+## [368,]    NA  NA
+## [369,]    NA  NA
+## [370,]    NA  NA
+## [371,]    24  25
+## [372,]    NA  NA
+## [373,]    NA  NA
+## [374,]    NA  NA
+## [375,]    NA  NA
+## [376,]    19  20
+## [377,]    NA  NA
+## [378,]    NA  NA
+## [379,]    NA  NA
+## [380,]    NA  NA
+## [381,]    NA  NA
+## [382,]    NA  NA
+## [383,]    NA  NA
+## [384,]    NA  NA
+## [385,]     7   8
+## [386,]    NA  NA
+## [387,]    NA  NA
+## [388,]    19  20
+## [389,]    14  15
+## [390,]    17  18
+## [391,]    NA  NA
+## [392,]    NA  NA
+## [393,]    NA  NA
+## [394,]    NA  NA
+## [395,]    NA  NA
+## [396,]    NA  NA
+## [397,]    15  16
+## [398,]    NA  NA
+## [399,]    NA  NA
+## [400,]    NA  NA
+## [401,]    NA  NA
+## [402,]    NA  NA
+## [403,]    NA  NA
+## [404,]    NA  NA
+## [405,]    NA  NA
+## [406,]    NA  NA
+## [407,]    NA  NA
+## [408,]    43  44
+## [409,]    20  21
+## [410,]    NA  NA
+## [411,]    NA  NA
+## [412,]    25  26
+## [413,]    10  11
+## [414,]    37  38
+## [415,]    NA  NA
+## [416,]    15  16
+## [417,]    NA  NA
+## [418,]    NA  NA
+## [419,]    NA  NA
+## [420,]    NA  NA
+## [421,]    16  17
+## [422,]    NA  NA
+## [423,]    NA  NA
+## [424,]    20  21
+## [425,]    15  16
+## [426,]    17  18
+## [427,]    30  31
+## [428,]    NA  NA
+## [429,]    NA  NA
+## [430,]    NA  NA
+## [431,]    30  31
+## [432,]    NA  NA
+## [433,]    NA  NA
+## [434,]    28  29
+## [435,]    NA  NA
+## [436,]    NA  NA
+## [437,]    NA  NA
+## [438,]    NA  NA
+## [439,]    NA  NA
+## [440,]    NA  NA
+## [441,]    NA  NA
+## [442,]    NA  NA
+## [443,]    NA  NA
+## [444,]    NA  NA
+## [445,]    NA  NA
+## [446,]    NA  NA
+## [447,]    NA  NA
+## [448,]    NA  NA
+## [449,]    NA  NA
+## [450,]    NA  NA
+## [451,]    NA  NA
+## [452,]    NA  NA
+## [453,]    NA  NA
+## [454,]    NA  NA
+## [455,]    NA  NA
+## [456,]    NA  NA
+## [457,]    25  26
+## [458,]    NA  NA
+## [459,]    24  25
+## [460,]    NA  NA
+## [461,]    NA  NA
+## [462,]    NA  NA
+## [463,]    35  36
+## [464,]    NA  NA
+## [465,]    NA  NA
+## [466,]    NA  NA
+## [467,]    NA  NA
+## [468,]    NA  NA
+## [469,]    NA  NA
+## [470,]    39  40
+## [471,]    NA  NA
+## [472,]    NA  NA
+## [473,]    29  30
+## [474,]    NA  NA
+## [475,]    23  24
+## [476,]    NA  NA
+## [477,]    NA  NA
+## [478,]    NA  NA
+## [479,]    NA  NA
+## [480,]    NA  NA
+## [481,]     9  10
+## [482,]    NA  NA
+## [483,]    NA  NA
+## [484,]    NA  NA
+## [485,]    NA  NA
+## [486,]    NA  NA
+## [487,]    NA  NA
+## [488,]     6   7
+## [489,]    12  13
+## [490,]    NA  NA
+## [491,]    NA  NA
+## [492,]    NA  NA
+## [493,]    NA  NA
+## [494,]    NA  NA
+## [495,]    21  22
+## [496,]    NA  NA
+## [497,]    15  16
+## [498,]     9  10
+## [499,]    NA  NA
+## [500,]    NA  NA
+## [501,]    NA  NA
+## [502,]    14  15
+## [503,]    36  37
+## [504,]    18  19
+## [505,]    10  11
+## [506,]    NA  NA
+## [507,]    NA  NA
+## [508,]    NA  NA
+## [509,]    NA  NA
+## [510,]    NA  NA
+## [511,]    NA  NA
+## [512,]    NA  NA
+## [513,]    NA  NA
+## [514,]    NA  NA
+## [515,]    NA  NA
+## [516,]    32  33
+## [517,]    NA  NA
+## [518,]    NA  NA
+## [519,]    NA  NA
+## [520,]    NA  NA
+## [521,]    NA  NA
+## [522,]    NA  NA
+## [523,]    NA  NA
+## [524,]    NA  NA
+## [525,]    NA  NA
+## [526,]    NA  NA
+## [527,]    28  29
+## [528,]    NA  NA
+## [529,]    NA  NA
+## [530,]    NA  NA
+## [531,]    NA  NA
+## [532,]    NA  NA
+## [533,]    31  32
+## [534,]    NA  NA
+## [535,]    NA  NA
+## [536,]    NA  NA
+## [537,]    NA  NA
+## [538,]    NA  NA
+## [539,]    NA  NA
+## [540,]    20  21
+## [541,]    NA  NA
+## [542,]    33  34
+## [543,]    NA  NA
+## [544,]    27  28
+## [545,]    NA  NA
+## [546,]    20  21
+## [547,]    NA  NA
+## [548,]    NA  NA
+## [549,]    NA  NA
+## [550,]    NA  NA
+## [551,]    NA  NA
+## [552,]    NA  NA
+## [553,]    NA  NA
+## [554,]    NA  NA
+## [555,]    NA  NA
+## [556,]    NA  NA
+## [557,]    NA  NA
+## [558,]     3   4
+## [559,]    NA  NA
+## [560,]    NA  NA
+## [561,]    NA  NA
+## [562,]    21  22
+## [563,]    NA  NA
+## [564,]    NA  NA
+## [565,]    NA  NA
+## [566,]    NA  NA
+## [567,]    31  32
+## [568,]    NA  NA
+## [569,]    NA  NA
+## [570,]    NA  NA
+## [571,]    NA  NA
+## [572,]    NA  NA
+## [573,]    NA  NA
+## [574,]    NA  NA
+## [575,]    27  28
+## [576,]    NA  NA
+## [577,]    NA  NA
+## [578,]    36  37
+## [579,]    30  31
+## [580,]    NA  NA
+## [581,]    NA  NA
+## [582,]    29  30
+## [583,]     6   7
+## [584,]    28  29
+## [585,]    NA  NA
+## [586,]    NA  NA
+## [587,]    NA  NA
+## [588,]    NA  NA
+## [589,]    15  16
+## [590,]    NA  NA
+## [591,]     2   3
+## [592,]    NA  NA
+## [593,]    33  34
+## [594,]    NA  NA
+## [595,]    NA  NA
+## [596,]    NA  NA
+## [597,]     7   8
+## [598,]    22  23
+## [599,]    20  21
+## [600,]    NA  NA
+## [601,]    24  25
+## [602,]    18  19
+## [603,]    NA  NA
+## [604,]    NA  NA
+## [605,]    NA  NA
+## [606,]    NA  NA
+## [607,]    NA  NA
+## [608,]    NA  NA
+## [609,]    NA  NA
+## [610,]    NA  NA
+## [611,]    NA  NA
+## [612,]    NA  NA
+## [613,]    NA  NA
+## [614,]    43  44
+## [615,]    NA  NA
+## [616,]    NA  NA
+## [617,]    NA  NA
+## [618,]    NA  NA
+## [619,]    NA  NA
+## [620,]    NA  NA
+## [621,]    NA  NA
+## [622,]    NA  NA
+## [623,]    NA  NA
+## [624,]    NA  NA
+## [625,]    NA  NA
+## [626,]    36  37
+## [627,]    16  17
+## [628,]    23  24
+## [629,]    NA  NA
+## [630,]    NA  NA
+## [631,]    NA  NA
+## [632,]    NA  NA
+## [633,]    NA  NA
+## [634,]    NA  NA
+## [635,]    NA  NA
+## [636,]    NA  NA
+## [637,]    NA  NA
+## [638,]    NA  NA
+## [639,]    NA  NA
+## [640,]    NA  NA
+## [641,]    NA  NA
+## [642,]    NA  NA
+## [643,]    NA  NA
+## [644,]    NA  NA
+## [645,]    NA  NA
+## [646,]    NA  NA
+## [647,]    NA  NA
+## [648,]    NA  NA
+## [649,]    NA  NA
+## [650,]    NA  NA
+## [651,]    NA  NA
+## [652,]    NA  NA
+## [653,]    NA  NA
+## [654,]    NA  NA
+## [655,]    27  28
+## [656,]    NA  NA
+## [657,]    NA  NA
+## [658,]    NA  NA
+## [659,]    NA  NA
+## [660,]    27  28
+## [661,]    NA  NA
+## [662,]    NA  NA
+## [663,]    NA  NA
+## [664,]     9  10
+## [665,]    NA  NA
+## [666,]    NA  NA
+## [667,]    NA  NA
+## [668,]    38  39
+## [669,]    NA  NA
+## [670,]    NA  NA
+## [671,]    NA  NA
+## [672,]    NA  NA
+## [673,]    NA  NA
+## [674,]    NA  NA
+## [675,]    22  23
+## [676,]    NA  NA
+## [677,]    NA  NA
+## [678,]    15  16
+## [679,]    NA  NA
+## [680,]    NA  NA
+## [681,]    NA  NA
+## [682,]    NA  NA
+## [683,]    NA  NA
+## [684,]    NA  NA
+## [685,]    33  34
+## [686,]    NA  NA
+## [687,]    14  15
+## [688,]    NA  NA
+## [689,]    NA  NA
+## [690,]    20  21
+## [691,]     6   7
+## [692,]    NA  NA
+## [693,]    NA  NA
+## [694,]    NA  NA
+## [695,]    40  41
+## [696,]    NA  NA
+## [697,]    28  29
+## [698,]     2   3
+## [699,]    NA  NA
+## [700,]    NA  NA
+## [701,]    16  17
+## [702,]    NA  NA
+## [703,]    NA  NA
+## [704,]    NA  NA
+## [705,]    24  25
+## [706,]    NA  NA
+## [707,]    30  31
+## [708,]    NA  NA
+## [709,]    NA  NA
+## [710,]    13  14
+## [711,]    NA  NA
+## [712,]    23  24
+## [713,]    NA  NA
+## [714,]    NA  NA
+## [715,]    21  22
+## [716,]    NA  NA
+## [717,]    NA  NA
+## [718,]    11  12
+## [719,]    NA  NA
+## [720,]    NA  NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str\_locate}\NormalTok{(sentences,}\AttributeTok{pattern =} \StringTok{"eam"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        start end
+##   [1,]    NA  NA
+##   [2,]    NA  NA
+##   [3,]    NA  NA
+##   [4,]    NA  NA
+##   [5,]    NA  NA
+##   [6,]    NA  NA
+##   [7,]    NA  NA
+##   [8,]    NA  NA
+##   [9,]    NA  NA
+##  [10,]    NA  NA
+##  [11,]    NA  NA
+##  [12,]    NA  NA
+##  [13,]    NA  NA
+##  [14,]    NA  NA
+##  [15,]    NA  NA
+##  [16,]    NA  NA
+##  [17,]    NA  NA
+##  [18,]    NA  NA
+##  [19,]    NA  NA
+##  [20,]    NA  NA
+##  [21,]    NA  NA
+##  [22,]    NA  NA
+##  [23,]    NA  NA
+##  [24,]    NA  NA
+##  [25,]    NA  NA
+##  [26,]    NA  NA
+##  [27,]    NA  NA
+##  [28,]    NA  NA
+##  [29,]    NA  NA
+##  [30,]    NA  NA
+##  [31,]    NA  NA
+##  [32,]    NA  NA
+##  [33,]    NA  NA
+##  [34,]    NA  NA
+##  [35,]    NA  NA
+##  [36,]    NA  NA
+##  [37,]    NA  NA
+##  [38,]    NA  NA
+##  [39,]    NA  NA
+##  [40,]    NA  NA
+##  [41,]    NA  NA
+##  [42,]    NA  NA
+##  [43,]    NA  NA
+##  [44,]    NA  NA
+##  [45,]    NA  NA
+##  [46,]    NA  NA
+##  [47,]    NA  NA
+##  [48,]    NA  NA
+##  [49,]    NA  NA
+##  [50,]    NA  NA
+##  [51,]    NA  NA
+##  [52,]    NA  NA
+##  [53,]    NA  NA
+##  [54,]    NA  NA
+##  [55,]    NA  NA
+##  [56,]    NA  NA
+##  [57,]    NA  NA
+##  [58,]    NA  NA
+##  [59,]    NA  NA
+##  [60,]    NA  NA
+##  [61,]    NA  NA
+##  [62,]    NA  NA
+##  [63,]    NA  NA
+##  [64,]    NA  NA
+##  [65,]    NA  NA
+##  [66,]    NA  NA
+##  [67,]    NA  NA
+##  [68,]    NA  NA
+##  [69,]    NA  NA
+##  [70,]    NA  NA
+##  [71,]    NA  NA
+##  [72,]    NA  NA
+##  [73,]    NA  NA
+##  [74,]    NA  NA
+##  [75,]    NA  NA
+##  [76,]    NA  NA
+##  [77,]    NA  NA
+##  [78,]    NA  NA
+##  [79,]    NA  NA
+##  [80,]    NA  NA
+##  [81,]    NA  NA
+##  [82,]    NA  NA
+##  [83,]    NA  NA
+##  [84,]    NA  NA
+##  [85,]    NA  NA
+##  [86,]    NA  NA
+##  [87,]    NA  NA
+##  [88,]    NA  NA
+##  [89,]    NA  NA
+##  [90,]    NA  NA
+##  [91,]    NA  NA
+##  [92,]    NA  NA
+##  [93,]    NA  NA
+##  [94,]    NA  NA
+##  [95,]    NA  NA
+##  [96,]    NA  NA
+##  [97,]    NA  NA
+##  [98,]    NA  NA
+##  [99,]    NA  NA
+## [100,]    NA  NA
+## [101,]    NA  NA
+## [102,]    NA  NA
+## [103,]    NA  NA
+## [104,]    NA  NA
+## [105,]    NA  NA
+## [106,]    NA  NA
+## [107,]    NA  NA
+## [108,]    NA  NA
+## [109,]    NA  NA
+## [110,]    NA  NA
+## [111,]    NA  NA
+## [112,]    NA  NA
+## [113,]    NA  NA
+## [114,]    NA  NA
+## [115,]    NA  NA
+## [116,]    33  35
+## [117,]    NA  NA
+## [118,]    NA  NA
+## [119,]    NA  NA
+## [120,]    NA  NA
+## [121,]    NA  NA
+## [122,]    NA  NA
+## [123,]    NA  NA
+## [124,]    NA  NA
+## [125,]    NA  NA
+## [126,]    NA  NA
+## [127,]    NA  NA
+## [128,]    NA  NA
+## [129,]    NA  NA
+## [130,]    NA  NA
+## [131,]    NA  NA
+## [132,]    NA  NA
+## [133,]    NA  NA
+## [134,]    NA  NA
+## [135,]    NA  NA
+## [136,]    NA  NA
+## [137,]    NA  NA
+## [138,]    NA  NA
+## [139,]    NA  NA
+## [140,]    NA  NA
+## [141,]    NA  NA
+## [142,]    NA  NA
+## [143,]    NA  NA
+## [144,]    NA  NA
+## [145,]    NA  NA
+## [146,]    NA  NA
+## [147,]    NA  NA
+## [148,]    NA  NA
+## [149,]    NA  NA
+## [150,]    NA  NA
+## [151,]    NA  NA
+## [152,]    NA  NA
+## [153,]    NA  NA
+## [154,]    NA  NA
+## [155,]    NA  NA
+## [156,]    NA  NA
+## [157,]    NA  NA
+## [158,]    NA  NA
+## [159,]    NA  NA
+## [160,]    NA  NA
+## [161,]    NA  NA
+## [162,]    NA  NA
+## [163,]    NA  NA
+## [164,]    NA  NA
+## [165,]    NA  NA
+## [166,]    NA  NA
+## [167,]    NA  NA
+## [168,]    NA  NA
+## [169,]    NA  NA
+## [170,]    NA  NA
+## [171,]     3   5
+## [172,]    NA  NA
+## [173,]    NA  NA
+## [174,]    NA  NA
+## [175,]    NA  NA
+## [176,]    NA  NA
+## [177,]    NA  NA
+## [178,]    NA  NA
+## [179,]    NA  NA
+## [180,]    NA  NA
+## [181,]    NA  NA
+## [182,]    NA  NA
+## [183,]    NA  NA
+## [184,]    NA  NA
+## [185,]    NA  NA
+## [186,]    NA  NA
+## [187,]    NA  NA
+## [188,]    NA  NA
+## [189,]    NA  NA
+## [190,]    NA  NA
+## [191,]    NA  NA
+## [192,]    NA  NA
+## [193,]    NA  NA
+## [194,]    NA  NA
+## [195,]    NA  NA
+## [196,]    NA  NA
+## [197,]    NA  NA
+## [198,]    NA  NA
+## [199,]    NA  NA
+## [200,]    NA  NA
+## [201,]    NA  NA
+## [202,]    NA  NA
+## [203,]    NA  NA
+## [204,]    NA  NA
+## [205,]    NA  NA
+## [206,]    NA  NA
+## [207,]    NA  NA
+## [208,]    NA  NA
+## [209,]    NA  NA
+## [210,]    NA  NA
+## [211,]    NA  NA
+## [212,]    NA  NA
+## [213,]    NA  NA
+## [214,]    NA  NA
+## [215,]    NA  NA
+## [216,]    NA  NA
+## [217,]    NA  NA
+## [218,]    NA  NA
+## [219,]    NA  NA
+## [220,]    NA  NA
+## [221,]    NA  NA
+## [222,]    NA  NA
+## [223,]    NA  NA
+## [224,]    NA  NA
+## [225,]    NA  NA
+## [226,]    NA  NA
+## [227,]    NA  NA
+## [228,]    NA  NA
+## [229,]    NA  NA
+## [230,]    NA  NA
+## [231,]    NA  NA
+## [232,]    NA  NA
+## [233,]    NA  NA
+## [234,]    NA  NA
+## [235,]    NA  NA
+## [236,]    NA  NA
+## [237,]    NA  NA
+## [238,]    NA  NA
+## [239,]    NA  NA
+## [240,]    NA  NA
+## [241,]    NA  NA
+## [242,]    NA  NA
+## [243,]    NA  NA
+## [244,]    NA  NA
+## [245,]    NA  NA
+## [246,]    NA  NA
+## [247,]    NA  NA
+## [248,]    NA  NA
+## [249,]    NA  NA
+## [250,]    NA  NA
+## [251,]    NA  NA
+## [252,]    NA  NA
+## [253,]    NA  NA
+## [254,]    NA  NA
+## [255,]    NA  NA
+## [256,]    NA  NA
+## [257,]    NA  NA
+## [258,]    NA  NA
+## [259,]    NA  NA
+## [260,]    NA  NA
+## [261,]    NA  NA
+## [262,]    NA  NA
+## [263,]    NA  NA
+## [264,]    NA  NA
+## [265,]    NA  NA
+## [266,]    NA  NA
+## [267,]    NA  NA
+## [268,]    NA  NA
+## [269,]    NA  NA
+## [270,]    NA  NA
+## [271,]    NA  NA
+## [272,]    NA  NA
+## [273,]    NA  NA
+## [274,]    NA  NA
+## [275,]    NA  NA
+## [276,]    NA  NA
+## [277,]    NA  NA
+## [278,]    NA  NA
+## [279,]    NA  NA
+## [280,]    NA  NA
+## [281,]    NA  NA
+## [282,]    NA  NA
+## [283,]    NA  NA
+## [284,]    NA  NA
+## [285,]    NA  NA
+## [286,]    NA  NA
+## [287,]    NA  NA
+## [288,]    NA  NA
+## [289,]    NA  NA
+## [290,]    NA  NA
+## [291,]    NA  NA
+## [292,]    NA  NA
+## [293,]    NA  NA
+## [294,]    NA  NA
+## [295,]    NA  NA
+## [296,]    NA  NA
+## [297,]    NA  NA
+## [298,]    NA  NA
+## [299,]    NA  NA
+## [300,]    NA  NA
+## [301,]    NA  NA
+## [302,]    NA  NA
+## [303,]     6   8
+## [304,]    NA  NA
+## [305,]    NA  NA
+## [306,]    NA  NA
+## [307,]    NA  NA
+## [308,]    NA  NA
+## [309,]    NA  NA
+## [310,]    NA  NA
+## [311,]    NA  NA
+## [312,]    NA  NA
+## [313,]    NA  NA
+## [314,]    NA  NA
+## [315,]    NA  NA
+## [316,]    NA  NA
+## [317,]    NA  NA
+## [318,]    NA  NA
+## [319,]    NA  NA
+## [320,]    NA  NA
+## [321,]    NA  NA
+## [322,]    NA  NA
+## [323,]    NA  NA
+## [324,]    NA  NA
+## [325,]    NA  NA
+## [326,]    NA  NA
+## [327,]    NA  NA
+## [328,]    NA  NA
+## [329,]    NA  NA
+## [330,]    NA  NA
+## [331,]    NA  NA
+## [332,]    NA  NA
+## [333,]    NA  NA
+## [334,]    NA  NA
+## [335,]    NA  NA
+## [336,]    NA  NA
+## [337,]    NA  NA
+## [338,]    NA  NA
+## [339,]    NA  NA
+## [340,]    NA  NA
+## [341,]    NA  NA
+## [342,]    NA  NA
+## [343,]    NA  NA
+## [344,]    NA  NA
+## [345,]    NA  NA
+## [346,]    NA  NA
+## [347,]    NA  NA
+## [348,]    NA  NA
+## [349,]    NA  NA
+## [350,]    NA  NA
+## [351,]    NA  NA
+## [352,]    NA  NA
+## [353,]    NA  NA
+## [354,]    NA  NA
+## [355,]    45  47
+## [356,]    NA  NA
+## [357,]    NA  NA
+## [358,]    NA  NA
+## [359,]    NA  NA
+## [360,]    NA  NA
+## [361,]    NA  NA
+## [362,]    38  40
+## [363,]    NA  NA
+## [364,]    NA  NA
+## [365,]    NA  NA
+## [366,]    NA  NA
+## [367,]    NA  NA
+## [368,]    NA  NA
+## [369,]    NA  NA
+## [370,]    NA  NA
+## [371,]    NA  NA
+## [372,]    NA  NA
+## [373,]    NA  NA
+## [374,]    NA  NA
+## [375,]    NA  NA
+## [376,]    NA  NA
+## [377,]    NA  NA
+## [378,]    NA  NA
+## [379,]    NA  NA
+## [380,]    NA  NA
+## [381,]    NA  NA
+## [382,]    NA  NA
+## [383,]    NA  NA
+## [384,]    NA  NA
+## [385,]    NA  NA
+## [386,]    NA  NA
+## [387,]    NA  NA
+## [388,]    NA  NA
+## [389,]    NA  NA
+## [390,]    NA  NA
+## [391,]    NA  NA
+## [392,]    NA  NA
+## [393,]    NA  NA
+## [394,]    NA  NA
+## [395,]    NA  NA
+## [396,]    NA  NA
+## [397,]    NA  NA
+## [398,]    NA  NA
+## [399,]    NA  NA
+## [400,]    NA  NA
+## [401,]    NA  NA
+## [402,]    NA  NA
+## [403,]    NA  NA
+## [404,]    NA  NA
+## [405,]    NA  NA
+## [406,]    NA  NA
+## [407,]    NA  NA
+## [408,]    NA  NA
+## [409,]    NA  NA
+## [410,]    NA  NA
+## [411,]    NA  NA
+## [412,]    NA  NA
+## [413,]    NA  NA
+## [414,]    NA  NA
+## [415,]    NA  NA
+## [416,]    NA  NA
+## [417,]    NA  NA
+## [418,]    NA  NA
+## [419,]    NA  NA
+## [420,]    NA  NA
+## [421,]    NA  NA
+## [422,]    NA  NA
+## [423,]    NA  NA
+## [424,]    NA  NA
+## [425,]    NA  NA
+## [426,]    NA  NA
+## [427,]    NA  NA
+## [428,]    NA  NA
+## [429,]    NA  NA
+## [430,]    NA  NA
+## [431,]    NA  NA
+## [432,]    NA  NA
+## [433,]    NA  NA
+## [434,]    NA  NA
+## [435,]    NA  NA
+## [436,]    35  37
+## [437,]    NA  NA
+## [438,]    NA  NA
+## [439,]    NA  NA
+## [440,]    NA  NA
+## [441,]    NA  NA
+## [442,]    NA  NA
+## [443,]    NA  NA
+## [444,]    NA  NA
+## [445,]    NA  NA
+## [446,]    NA  NA
+## [447,]    NA  NA
+## [448,]    NA  NA
+## [449,]    NA  NA
+## [450,]    NA  NA
+## [451,]    NA  NA
+## [452,]    NA  NA
+## [453,]    NA  NA
+## [454,]    NA  NA
+## [455,]    NA  NA
+## [456,]    NA  NA
+## [457,]    NA  NA
+## [458,]    NA  NA
+## [459,]    NA  NA
+## [460,]    NA  NA
+## [461,]    NA  NA
+## [462,]    NA  NA
+## [463,]    NA  NA
+## [464,]    NA  NA
+## [465,]    NA  NA
+## [466,]    NA  NA
+## [467,]    NA  NA
+## [468,]    NA  NA
+## [469,]    NA  NA
+## [470,]    NA  NA
+## [471,]    NA  NA
+## [472,]    NA  NA
+## [473,]    NA  NA
+## [474,]    NA  NA
+## [475,]    NA  NA
+## [476,]    NA  NA
+## [477,]    NA  NA
+## [478,]    NA  NA
+## [479,]    NA  NA
+## [480,]    NA  NA
+## [481,]    NA  NA
+## [482,]    NA  NA
+## [483,]    NA  NA
+## [484,]    NA  NA
+## [485,]    NA  NA
+## [486,]    NA  NA
+## [487,]    NA  NA
+## [488,]    NA  NA
+## [489,]    NA  NA
+## [490,]    NA  NA
+## [491,]    NA  NA
+## [492,]    NA  NA
+## [493,]    NA  NA
+## [494,]    NA  NA
+## [495,]    NA  NA
+## [496,]    NA  NA
+## [497,]    NA  NA
+## [498,]    NA  NA
+## [499,]    NA  NA
+## [500,]    NA  NA
+## [501,]    NA  NA
+## [502,]    NA  NA
+## [503,]    NA  NA
+## [504,]    NA  NA
+## [505,]    NA  NA
+## [506,]    NA  NA
+## [507,]    NA  NA
+## [508,]    NA  NA
+## [509,]    NA  NA
+## [510,]    NA  NA
+## [511,]    NA  NA
+## [512,]    NA  NA
+## [513,]    NA  NA
+## [514,]    NA  NA
+## [515,]    NA  NA
+## [516,]    NA  NA
+## [517,]    NA  NA
+## [518,]    NA  NA
+## [519,]    NA  NA
+## [520,]    NA  NA
+## [521,]    NA  NA
+## [522,]    NA  NA
+## [523,]    NA  NA
+## [524,]    NA  NA
+## [525,]    NA  NA
+## [526,]    NA  NA
+## [527,]    NA  NA
+## [528,]    NA  NA
+## [529,]    NA  NA
+## [530,]    NA  NA
+## [531,]    NA  NA
+## [532,]    NA  NA
+## [533,]    NA  NA
+## [534,]    NA  NA
+## [535,]    NA  NA
+## [536,]    NA  NA
+## [537,]    NA  NA
+## [538,]    NA  NA
+## [539,]    NA  NA
+## [540,]    NA  NA
+## [541,]    NA  NA
+## [542,]    NA  NA
+## [543,]    NA  NA
+## [544,]    NA  NA
+## [545,]    NA  NA
+## [546,]    NA  NA
+## [547,]    NA  NA
+## [548,]    NA  NA
+## [549,]    NA  NA
+## [550,]    NA  NA
+## [551,]    NA  NA
+## [552,]    NA  NA
+## [553,]    NA  NA
+## [554,]    NA  NA
+## [555,]    NA  NA
+## [556,]    NA  NA
+## [557,]    NA  NA
+## [558,]    NA  NA
+## [559,]    NA  NA
+## [560,]    NA  NA
+## [561,]    NA  NA
+## [562,]    NA  NA
+## [563,]    NA  NA
+## [564,]    NA  NA
+## [565,]    NA  NA
+## [566,]    NA  NA
+## [567,]    NA  NA
+## [568,]    NA  NA
+## [569,]    NA  NA
+## [570,]    NA  NA
+## [571,]    NA  NA
+## [572,]    NA  NA
+## [573,]    NA  NA
+## [574,]    NA  NA
+## [575,]    NA  NA
+## [576,]    NA  NA
+## [577,]    NA  NA
+## [578,]    NA  NA
+## [579,]    NA  NA
+## [580,]    NA  NA
+## [581,]    NA  NA
+## [582,]    NA  NA
+## [583,]    NA  NA
+## [584,]    NA  NA
+## [585,]    NA  NA
+## [586,]    NA  NA
+## [587,]    NA  NA
+## [588,]    NA  NA
+## [589,]    NA  NA
+## [590,]    NA  NA
+## [591,]    NA  NA
+## [592,]    NA  NA
+## [593,]    NA  NA
+## [594,]    NA  NA
+## [595,]    NA  NA
+## [596,]    NA  NA
+## [597,]    NA  NA
+## [598,]    NA  NA
+## [599,]    NA  NA
+## [600,]    NA  NA
+## [601,]    NA  NA
+## [602,]    NA  NA
+## [603,]    NA  NA
+## [604,]    NA  NA
+## [605,]    NA  NA
+## [606,]    NA  NA
+## [607,]    NA  NA
+## [608,]    NA  NA
+## [609,]    NA  NA
+## [610,]    NA  NA
+## [611,]    NA  NA
+## [612,]     6   8
+## [613,]    NA  NA
+## [614,]    NA  NA
+## [615,]    NA  NA
+## [616,]    NA  NA
+## [617,]    NA  NA
+## [618,]    NA  NA
+## [619,]    NA  NA
+## [620,]    NA  NA
+## [621,]    NA  NA
+## [622,]    NA  NA
+## [623,]    NA  NA
+## [624,]    NA  NA
+## [625,]    NA  NA
+## [626,]    NA  NA
+## [627,]    NA  NA
+## [628,]    NA  NA
+## [629,]    NA  NA
+## [630,]    NA  NA
+## [631,]    NA  NA
+## [632,]    NA  NA
+## [633,]    NA  NA
+## [634,]    NA  NA
+## [635,]    NA  NA
+## [636,]    NA  NA
+## [637,]    NA  NA
+## [638,]    NA  NA
+## [639,]    NA  NA
+## [640,]    NA  NA
+## [641,]    NA  NA
+## [642,]    NA  NA
+## [643,]    NA  NA
+## [644,]    NA  NA
+## [645,]    NA  NA
+## [646,]    NA  NA
+## [647,]    NA  NA
+## [648,]    NA  NA
+## [649,]    NA  NA
+## [650,]    NA  NA
+## [651,]    NA  NA
+## [652,]    NA  NA
+## [653,]    NA  NA
+## [654,]    NA  NA
+## [655,]    NA  NA
+## [656,]    NA  NA
+## [657,]    NA  NA
+## [658,]    NA  NA
+## [659,]    NA  NA
+## [660,]    NA  NA
+## [661,]    NA  NA
+## [662,]    NA  NA
+## [663,]    NA  NA
+## [664,]    NA  NA
+## [665,]    NA  NA
+## [666,]    NA  NA
+## [667,]    NA  NA
+## [668,]    NA  NA
+## [669,]    NA  NA
+## [670,]    NA  NA
+## [671,]    NA  NA
+## [672,]    NA  NA
+## [673,]    NA  NA
+## [674,]    NA  NA
+## [675,]    NA  NA
+## [676,]    NA  NA
+## [677,]    NA  NA
+## [678,]    NA  NA
+## [679,]    NA  NA
+## [680,]    NA  NA
+## [681,]    NA  NA
+## [682,]    NA  NA
+## [683,]    NA  NA
+## [684,]    NA  NA
+## [685,]    NA  NA
+## [686,]    NA  NA
+## [687,]    NA  NA
+## [688,]    NA  NA
+## [689,]    NA  NA
+## [690,]    NA  NA
+## [691,]    NA  NA
+## [692,]    NA  NA
+## [693,]    NA  NA
+## [694,]    NA  NA
+## [695,]    NA  NA
+## [696,]    NA  NA
+## [697,]    NA  NA
+## [698,]    NA  NA
+## [699,]    NA  NA
+## [700,]    NA  NA
+## [701,]    NA  NA
+## [702,]    NA  NA
+## [703,]    NA  NA
+## [704,]    NA  NA
+## [705,]    NA  NA
+## [706,]    NA  NA
+## [707,]    NA  NA
+## [708,]    NA  NA
+## [709,]    NA  NA
+## [710,]    NA  NA
+## [711,]    NA  NA
+## [712,]    NA  NA
+## [713,]    NA  NA
+## [714,]    NA  NA
+## [715,]    NA  NA
+## [716,]    NA  NA
+## [717,]    NA  NA
+## [718,]    NA  NA
+## [719,]    NA  NA
+## [720,]    NA  NA
+\end{verbatim}
+
+\newpage
+
+\hypertarget{problem-06---chapter-40-exercise-01b}{%
+\subsection{Problem \#06 - Chapter 40 Exercise
+\#01B}\label{problem-06---chapter-40-exercise-01b}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\FunctionTok{str\_subset}\NormalTok{(sentences,}\AttributeTok{pattern =} \StringTok{"ch[re][en]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "The ripe taste of cheese improves with age."
+\end{verbatim}
+
+\newpage
+
+\hypertarget{problem-07---chapter-40-exercise-02a}{%
+\subsection{Problem \#07 - Chapter 40 Exercise
+\#02A}\label{problem-07---chapter-40-exercise-02a}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\FunctionTok{str\_subset}\NormalTok{(sentences,}\AttributeTok{pattern =} \StringTok{"(ina)|(in a)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "The set of china hit the floor with a crash."    
+##  [2] "The pearl was worn in a thin silver ring."       
+##  [3] "It caught its hind paw in a rusty trap."         
+##  [4] "Those thistles bend in a high wind."             
+##  [5] "The tree top waved in a graceful way."           
+##  [6] "Let's all join as we sing the last chorus."      
+##  [7] "Pack the records in a neat thin case."           
+##  [8] "Nine rows of soldiers stood in a line."          
+##  [9] "Send the stuff in a thick paper bag."            
+## [10] "A man in a blue sweater sat at the desk."        
+## [11] "Take a chance and win a china doll."             
+## [12] "The cloud moved in a stately way and was gone."  
+## [13] "The duke left the park in a silver coach."       
+## [14] "Tea in thin china has a sweet taste."            
+## [15] "A cruise in warm waters in a sleek yacht is fun."
+## [16] "You cannot brew tea in a cold pot."
+\end{verbatim}
+
+\newpage
+
+\hypertarget{problem-08---chapter-40-exercise-03b}{%
+\subsection{Problem \#08 - Chapter 40 Exercise
+\#03B}\label{problem-08---chapter-40-exercise-03b}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Show your work here}
+\FunctionTok{str\_subset}\NormalTok{(sentences,}\AttributeTok{pattern =} \StringTok{"\^{}(A|Ad|Add|Aing|Ading|Adding)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "A large size in stockings is hard to sell."      
+##  [2] "A rod is used to catch pink salmon."             
+##  [3] "A pot of tea helps to pass the evening."         
+##  [4] "A king ruled the state in the early days."       
+##  [5] "Adding fast leads to wrong sums."                
+##  [6] "A saw is a tool used for making boards."         
+##  [7] "A cup of sugar makes sweet fudge."               
+##  [8] "A small creek cut across the field."             
+##  [9] "A yacht slid around the point into the bay."     
+## [10] "A tame squirrel makes a nice pet."               
+## [11] "Always close the barn door tight."               
+## [12] "A wisp of cloud hung in the blue air."           
+## [13] "A pound of sugar costs more than eggs."          
+## [14] "A Tusk is used to make costly gifts."            
+## [15] "Add the sum to the product of these three."      
+## [16] "Act on these orders with great speed."           
+## [17] "A lame back kept his score low."                 
+## [18] "A cramp is no small danger on a swim."           
+## [19] "A salt pickle tastes fine with ham."             
+## [20] "A speedy man can beat this track mark."          
+## [21] "At that high level the air is pure."             
+## [22] "A filing case is now hard to buy."               
+## [23] "An abrupt start does not win the prize."         
+## [24] "A rag will soak up spilled water."               
+## [25] "A shower of dirt fell from the hot pipes."       
+## [26] "Add the store's account to the last cent."       
+## [27] "Acid burns holes in wool cloth."                 
+## [28] "A young child should not suffer fright."         
+## [29] "Add the column and put the sum here."            
+## [30] "A blue crane is a tall wading bird."             
+## [31] "A fresh start will work such wonders."           
+## [32] "After the dance, they went straight home."       
+## [33] "A pencil with black lead writes best."           
+## [34] "A waxed floor makes us lose balance."            
+## [35] "Add salt before you fry the egg."                
+## [36] "A dash of pepper spoils beef stew."              
+## [37] "A zestful food is the hot-cross bun."            
+## [38] "A joy to every child is the swan boat."          
+## [39] "All sat frozen and watched the screen."          
+## [40] "A cloud of dust stung his tender eyes."          
+## [41] "A ridge on a smooth surface is a bump or flaw."  
+## [42] "A gem in the rough needs work to polish."        
+## [43] "A castle built from sand fails to endure."       
+## [44] "A child's wit saved the day for us."             
+## [45] "A ripe plum is fit for a king's palate."         
+## [46] "A sash of gold silk will trim her dress."        
+## [47] "A siege will crack the strong defense."          
+## [48] "A lathe cuts and trims any wood."                
+## [49] "A cone costs five cents on Mondays."             
+## [50] "A pod is what peas always grow in."              
+## [51] "A list of names is carved around the base."      
+## [52] "A chink in the wall allowed a draft to blow."    
+## [53] "A cold dip restores health and zest."            
+## [54] "A gray mare walked before the colt."             
+## [55] "A clean neck means a neat collar."               
+## [56] "A fur muff is stylish once more."                
+## [57] "A fence cuts through the corner lot."            
+## [58] "A quart of milk is water for the most part."     
+## [59] "A man in a blue sweater sat at the desk."        
+## [60] "A sip of tea revives his tired friend."          
+## [61] "A force equal to that would move the earth."     
+## [62] "A bowl of rice is free with chicken stew."       
+## [63] "A big wet stain was on the round carpet."        
+## [64] "A rich farm is rare in this sandy waste."        
+## [65] "A strong bid may scare your partner stiff."      
+## [66] "A thing of small note can cause despair."        
+## [67] "A thick coat of black paint covered all."        
+## [68] "At night the alarm roused him from a deep sleep."
+## [69] "A brown leather bag hung from its strap."        
+## [70] "A toad and a frog are hard to tell apart."       
+## [71] "A white silk jacket goes with any shoes."        
+## [72] "A break in the dam almost caused a flood."       
+## [73] "A round hole was drilled through the thin board."
+## [74] "A vent near the edge brought in fresh air."      
+## [75] "A sullen smile gets few friends."                
+## [76] "A stiff cord will do to fasten your shoe."       
+## [77] "A plea for funds seems to come again."           
+## [78] "A thin stripe runs down the middle."             
+## [79] "A six comes up more often than a ten."           
+## [80] "A steep trail is painful for our feet."          
+## [81] "A whiff of it will cure the most stubborn cold." 
+## [82] "A cruise in warm waters in a sleek yacht is fun."
+## [83] "A streak of color ran down the left edge."       
+## [84] "A gold vase is both rare and costly."            
+## [85] "A smatter of French is worse than none."         
+## [86] "A round mat will cover the dull spot."           
+## [87] "A good book informs of what we ought to know."   
+## [88] "A flat pack takes less luggage space."           
+## [89] "A stuffed chair slipped from the moving van."    
+## [90] "A thin book fits in the side pocket."            
+## [91] "A gold ring will please most any girl."          
+## [92] "A pink shell was found on the sandy beach."      
+## [93] "A severe storm tore down the barn."
+\end{verbatim}
+
+\end{document}
